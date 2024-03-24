@@ -1,94 +1,96 @@
-import { Node } from "reactflow";
-import { LabeledObjectForNode, SchemaSubschemaKeys } from "./types";
+import { Edge, Node } from "reactflow";
+import { LabeledObjectForNode, ObjectSubschemaKeys, SchemaTypes } from "./types";
 
 type JsonSchema = Partial<Record<string, any>>
 
 export class JsonSchemaParser {
   public jsonSchema: JsonSchema
+  public nodes: Node[] = []
+  public edges: Edge[] = []
+  private nodeIdCount = 0;
+  private edgeIdCount = 0;
 
   constructor(jsonSchema: JsonSchema) {
     this.jsonSchema = jsonSchema
   }
 
-  parse(): Node[] {
-    const nodes: Node[] = []
-
-    const rootNode: Node = this.generateRootNode();
-    nodes.push(rootNode)
-    const subNodes = this.generateSubNodes();
-    nodes.push(...subNodes)
-
-    return nodes
+  parse() {
+    this.parseRootNode();
+    this.parseSubNodes();
   }
 
-  private generateRootNode(): Node {
-    const id = '1';
-    const label = '_root'
-
-    return this.generateNode(id, label)
+  // -------- Parsing Methods -------- 
+  private parseRootNode() {
+    this.addNode(ROOT_NODE_LABEL)
   }
 
-  private generateSubNodes(): Node[] {
-    const labeledObjectsFromSchemaKeys = this.getLabeledObjectsFromSchemaKeys(this.jsonSchema);
-    const nodes = this.generateNodesFromLabeledObjects(labeledObjectsFromSchemaKeys);
-    return nodes
+  private parseSubNodes() {
+    const rootNodeId = this.getLastNodeId();
+    this.traverseSchema(this.jsonSchema, rootNodeId);
   }
 
-  private generateNodesFromLabeledObjects(labeledObjects: LabeledObjectForNode[]) {
-    const nodes: Node[] = [];
+  // -------- Traversal Methods -------- 
+  private traverseSchema(schema: JsonSchema, sourceNodeId: string) {
+    const subschemaKeys = this.getSubschemaKeys(schema.type as SchemaTypes)
 
-    const nodesFromLabeledObjects = labeledObjects.map((labeledObject, index) => {
-      const indexForNodeGeneration = (index + 2).toString();
-      return this.generateNode(indexForNodeGeneration, labeledObject.label);
-    });
-
-    nodes.push(...nodesFromLabeledObjects);
-    return nodes;
-  }
-
-  private getLabeledObjectsFromSchemaKeys(schema: JsonSchema): LabeledObjectForNode[] {
-    const labeledObjects: LabeledObjectForNode[] = [];
-    const subschemaKeys = Object.values(SchemaSubschemaKeys);
-
-    subschemaKeys.forEach(subschemaKey => {
+    subschemaKeys?.forEach(subschemaKey => {
       if (this.subschemaExists(schema, subschemaKey)) {
-        const subschema = this.getSubschema(schema, subschemaKey);
-        const labeledObjectsFromSubschema: LabeledObjectForNode[] = this.traverseSubschema(subschema);
-        labeledObjects.push(...labeledObjectsFromSubschema);
+        const subschema = schema[subschemaKey];
+        this.traverseSubschema(subschema, sourceNodeId);
       }
     });
-
-    return labeledObjects
   }
 
-
-  private getSubschema(schema: JsonSchema, subschemaKey: SchemaSubschemaKeys): JsonSchema {
-    return schema[`${subschemaKey}`];
-  }
-
-  private traverseSubschema(schema: JsonSchema) {
+  private traverseSubschema(schema: JsonSchema, sourceNodeId: string) {
     const labeledObjects: LabeledObjectForNode[] = [];
 
     Object.entries(schema).forEach(([key, subschema]: [string, JSON]) => {
-      const labeledObject = { label: key };
-      labeledObjects.push(labeledObject);
-      const labeledObjectsFromSchemaKeys = this.getLabeledObjectsFromSchemaKeys(subschema);
-      labeledObjects.push(...labeledObjectsFromSchemaKeys)
+      this.addNode(key);
+      const lastNodeId = this.getLastNodeId();
+      this.addEdge(lastNodeId, sourceNodeId);
+      this.traverseSchema(subschema, lastNodeId);
     })
 
     return labeledObjects;
   }
 
-  private generateNode(id: string, label: string): Node {
-    return (
-      { id, data: { label }, position: DEFAULT_POSITION }
-    )
+  // -------- Graph Element Util Methods --------
+  private addNode(label: string) {
+    const id = 'node-id-' + this.nodeIdCount.toString();
+    this.nodeIdCount += 1;
+    const node: Node = { id, data: { label }, position: DEFAULT_POSITION }
+    this.nodes.push(node)
   }
 
-  private subschemaExists(schema: JsonSchema, subschemaKey: SchemaSubschemaKeys) {
+  private addEdge(target: string, source: string) {
+    const id = 'edge-id-' + this.edgeIdCount.toString();
+    this.edgeIdCount += 1;
+    const edge: Edge = { id, target, source }
+    this.edges.push(edge)
+  }
+
+  // -------- Util Methods --------
+  private getSubschemaKeys(schemaType: SchemaTypes | SchemaTypes[]) {
+    if (Array.isArray(schemaType)) {
+      throw new Error('No support for multi-typed nodes')
+    } else {
+      return schemaTypeToSchemaKeys[schemaType]
+    }
+  }
+
+  private subschemaExists(schema: JsonSchema, subschemaKey: string) {
     return Object.hasOwn(schema, subschemaKey)
+  }
+
+  private getLastNodeId = () => {
+    return this.nodes[this.nodes.length - 1].id
   }
 }
 
+const ROOT_NODE_LABEL = '_root'
 const DEFAULT_POSITION = { x: 0, y: 0 }
 
+// TODO: add support for other subschema keys
+const schemaTypeToSchemaKeys: Partial<Record<SchemaTypes, string[]>> = {
+  [SchemaTypes.OBJECT]: ObjectSubschemaKeys
+}
