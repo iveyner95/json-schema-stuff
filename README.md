@@ -36,20 +36,65 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 ## TODOs
-[x] Github
-[] Turn JSON Schema into Nodes / Connections
-[] Different UI for required properties
-[] Lay Outing in Flow Chart
-[] Plan support for different Schema types
-[] Header w/ title
-[] Editable Title
-[] Update Readme
-[] Settings
-[] Editable Settings
-[] Monaco Editor for JSON editor
-[] Landing page / Upload
-[] Type Generator to… what language?
-[] Handle invalid Upload
-[] Test pattern properties (Reg exp)
-[] Test Schema
-[] Websocket connections into UI
+
+### Not Completed
+
+- [ ] Display Array subschema as nodes
+  - [ ] 'items'
+  - [ ] 'prefixItems'
+  - [ ] 'contains'
+- [ ] Display logic based subschemas as nodes: https://json-schema.org/draft/2020-12/json-schema-core#name-keywords-for-applying-subsch
+  - [ ] 'allOf'
+    - [ ] Custom edge
+  - [ ] 'anyOf'
+    - [ ] Custom edge
+  - [ ] 'oneOf'
+    - [ ] Custom edge
+  - [ ] 'not'
+    - [ ] Custom edge
+- [ ] Keyword Independence: https://json-schema.org/draft/2020-12/json-schema-core#name-keyword-independence-2
+- [ ] Generate Positioning for Nodes
+- [ ] Draggable nodes
+- [ ] Generate edges for Nodes (from refs)
+- [ ] Custom Node header
+  - [ ] Icon for node by type (or root)
+  - [ ] Title for node
+  - [ ] Error icon for validation usage
+- [ ] Custom Node Contents
+  - [ ] Required
+  - [ ] Conditions !?
+  - [ ] Comments
+- [ ] Custom Node Footer for Subschemas
+  - [ ] Section for 'properties'
+  - [ ] Section for 'patternProperties'
+  - [ ] Section for 'additionalProperties'
+  - [ ] Section for 'propertyNames'
+- [ ] Display each subschema connection in its own UI / UX in node footer
+- [ ] Top Navbar
+- [ ] Display title of schema in the Navbar
+- [ ] Draft system
+- [ ] Download when there are changes
+- [ ] Revert to original
+- [ ] Moving edges edits the draft
+  - [ ] Prevent connecting to root node
+- [ ] Different UI for different subschemas
+- [ ] Settings Modal
+- [ ] Edit Title in settings
+- [ ] Edit other properties in the settings
+- [ ] Update Readme
+- [ ] Test pattern properties (Reg exp)
+- [ ] Monaco Editor for JSON editor
+- [ ] Landing page / Upload
+- [ ] Handle invalid Upload
+- [ ] Plan support for different Schema types
+- [ ] Type Generator to… what language?
+- [ ] Test Schema
+- [ ] Deploy To Vercel
+- [ ] Analytics
+- [ ] Explore vs-code extension
+- [ ] Websocket connections into UI
+
+### Completed
+
+- [x] Github
+- [x] Turn JSON Schema & object subschema into Nodes
