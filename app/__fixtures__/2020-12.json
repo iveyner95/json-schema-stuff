@@ -40,6 +40,24 @@
       "items": {
         "type": "string"
       }
+    },
+    "testPatternPropertiesObj": {
+      "type": "object",
+      "patternProperties": {
+        "^S_": {
+          "type": "string"
+        }
+      }
+    },
+    "testAdditionalPropertiesWithValue": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "testAdditionalPropertiesWithFalse": {
+      "type": "object",
+      "additionalProperties": false
     }
   },
   "required": [

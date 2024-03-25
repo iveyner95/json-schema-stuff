@@ -1,8 +1,6 @@
-export interface LabeledObjectForNode {
-  label: string;
-}
+import { AddEdgeFn, AddNodeFn, GetLastNodeIdFn } from "../types";
 
-export enum SchemaTypes {
+export enum JsonSchemaType {
   STRING = 'string',
   NUMBER = 'number',
   INTEGER = 'integer',
@@ -19,4 +17,8 @@ export enum ObjectSubschemaKeyValues {
   PROPERTY_NAMES = 'propertyNames'
 }
 
-export const ObjectSubschemaKeys = Object.values(ObjectSubschemaKeyValues)
+export interface GlobalJsonSchemaTraverserArgs {
+  addNode: AddNodeFn;
+  addEdge: AddEdgeFn;
+  getLastNodeId: GetLastNodeIdFn;
+}

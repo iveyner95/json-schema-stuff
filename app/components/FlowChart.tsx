@@ -8,10 +8,10 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import Draft12 from '../__fixtures__/2020-12.json';
-import { JsonSchemaParser } from '../JSONSchemaParser/JsonSchemaParser';
 
 import ELK from 'elkjs/lib/elk.bundled.js';
 import { useEffect } from 'react';
+import { JsonSchemaParser } from '../JsonSchema/JsonSchemaParser';
 import { useLayoutedElements } from './useLayoutedElements';
 
 export const elk = new ELK();
