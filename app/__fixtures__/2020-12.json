@@ -41,6 +41,15 @@
         "type": "string"
       }
     },
+    "arrayWithPropertyNamesObject": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "propertyNames": {
+          "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+        }
+      }
+    },
     "testPatternPropertiesObj": {
       "type": "object",
       "patternProperties": {
