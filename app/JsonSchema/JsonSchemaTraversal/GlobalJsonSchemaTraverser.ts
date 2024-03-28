@@ -35,7 +35,7 @@ export class GlobalJsonSchemaTraverser {
 
   private traverseSubschema: JsonTraverseSchemaFn = (schema: JsonSchema, sourceNodeId: string) => {
     Object.entries(schema).forEach(([key, subschema]: [string, JSON]) => {
-      this.addNode(key);
+      this.addNode(key, subschema);
       const lastNodeId = this.getLastNodeId();
       this.addEdge(lastNodeId, sourceNodeId);
       this.traverseSchema(subschema, lastNodeId);

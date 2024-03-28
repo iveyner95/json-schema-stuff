@@ -1,7 +1,6 @@
 'use client';
 import { useReactFlow } from 'reactflow';
-import { elk } from './FlowChart';
-
+import { elk } from './elk';
 
 export const useLayoutedElements = () => {
   const { getNodes, setNodes, getEdges, fitView } = useReactFlow();

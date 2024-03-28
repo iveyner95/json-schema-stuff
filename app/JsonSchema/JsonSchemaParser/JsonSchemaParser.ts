@@ -5,12 +5,14 @@ import {
   AddEdgeFn,
   AddNodeFn,
   JsonSchema,
+  NodeSchemaData
 } from '../types';
 
 export class JsonSchemaParser {
   public jsonSchema: JsonSchema
   public nodes: Node[] = []
   public edges: Edge[] = []
+  public nodeSchemaData: NodeSchemaData = {}
   private nodeIdCount = 0;
   private edgeIdCount = 0;
 
@@ -25,7 +27,7 @@ export class JsonSchemaParser {
 
   // -------- Parsing Methods -------- 
   private addRootNode() {
-    this.addNode(ROOT_NODE_LABEL)
+    this.addNode(ROOT_NODE_LABEL, this.jsonSchema)
   }
 
   private traverseSchema() {
@@ -45,11 +47,12 @@ export class JsonSchemaParser {
   }
 
   // -------- Graph Element Methods --------
-  private addNode: AddNodeFn = (label: string) => {
+  private addNode: AddNodeFn = (label: string, jsonSchema: JsonSchema) => {
     const id = 'node-id-' + this.nodeIdCount.toString();
     this.nodeIdCount += 1;
-    const node: Node = { id, data: { label }, position: DEFAULT_POSITION }
-    this.nodes.push(node)
+    const node: Node = { id, data: { label }, position: DEFAULT_POSITION, type: 'jsonNode' };
+    this.nodes.push(node);
+    this.nodeSchemaData[id] = jsonSchema;
   }
 
   private addEdge: AddEdgeFn = (target: string, source: string) => {
