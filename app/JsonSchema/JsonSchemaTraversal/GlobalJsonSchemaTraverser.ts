@@ -5,11 +5,12 @@ import {
   GetLastNodeIdFn,
   JsonSchema,
   JsonSchemaTraverser,
+  JsonSchemaType,
   JsonSchemaTypeTraverserArgs,
   JsonTraverseSchemaFn,
   SubschemaExistsFn
 } from '../types';
-import { GlobalJsonSchemaTraverserArgs, JsonSchemaType } from './types';
+import { GlobalJsonSchemaTraverserArgs } from './types';
 
 export class GlobalJsonSchemaTraverser {
   private addNode: AddNodeFn;
