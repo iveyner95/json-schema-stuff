@@ -1,4 +1,3 @@
-
 import { NodeIconBase } from './NodeIconBase'
 
 export const BooleanIcon = () => {
