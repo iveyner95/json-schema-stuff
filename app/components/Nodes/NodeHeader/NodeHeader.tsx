@@ -1,7 +1,6 @@
 import { JsonSchemaType } from '@/app/JsonSchema';
-import { NodeIcon } from './NodeIcon';
-// import { Tooltip } from './Tooltip';
 import { Tooltip } from 'react-tooltip';
+import { NodeIcon } from './NodeIcon';
 
 interface NodeHeaderProps {
   id: string;
