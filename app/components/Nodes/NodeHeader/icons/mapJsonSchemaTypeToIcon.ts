@@ -1,5 +1,5 @@
 import React from 'react';
-import { JsonSchemaType } from '../../../JsonSchema';
+import { JsonSchemaType } from '../../../../JsonSchema';
 import { FallbackIcon } from './FallbackIcon';
 import { ObjectIcon } from "./ObjectIcon";
 

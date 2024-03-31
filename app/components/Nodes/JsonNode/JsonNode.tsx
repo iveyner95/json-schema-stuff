@@ -9,7 +9,7 @@ export const JsonNode = ({ data, id }: NodeProps<DataWithLabel>) => {
 
   return (
     <NodeBox>
-      <NodeHeader name={label} jsonSchemaType={jsonSchemaType} />
+      <NodeHeader id={id} name={label} jsonSchemaType={jsonSchemaType} />
     </NodeBox>
   )
 }

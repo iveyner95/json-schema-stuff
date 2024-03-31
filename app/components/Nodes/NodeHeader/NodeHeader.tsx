@@ -1,25 +1,34 @@
 import { JsonSchemaType } from '@/app/JsonSchema';
-import { backgroundColorDM } from '@/app/tailwind-configs';
-import { useNodeHeader } from './useNodeHeader';
+import { NodeIcon } from './NodeIcon';
+// import { Tooltip } from './Tooltip';
+import { Tooltip } from 'react-tooltip';
 
 interface NodeHeaderProps {
-  name: string
-  jsonSchemaType: JsonSchemaType
+  id: string;
+  name: string;
+  jsonSchemaType: JsonSchemaType;
 }
 
-export const NodeHeader = ({ name, jsonSchemaType }: NodeHeaderProps) => {
-  const { Icon } = useNodeHeader(jsonSchemaType)
+export const NodeHeader = ({ id, name, jsonSchemaType }: NodeHeaderProps) => {
+  const tooltipId = 'tooltip-id-' + id
+  const tooltipText = 'JSON Schema Type: ' + jsonSchemaType
 
   return (
-    <div className='flex items-center'>
-      <div className={`flex items-center`}>
-        <div className={`rounded-full ${backgroundColorDM} p-2`}>
-          <Icon />
+    <>
+      <Tooltip id={tooltipId} variant="info" content={tooltipText} />
+      <div className='flex items-center'>
+        <div
+          data-tooltip-id={tooltipId}
+          data-tooltip-offset={20}
+        >
+          <NodeIcon
+            jsonSchemaType={jsonSchemaType}
+          />
+        </div>
+        <div className='ml-2'>
+          <div className='font-bold text-lg'>{name}</div>
         </div>
       </div>
-      <div className='ml-2'>
-        <div className='font-bold text-lg'>{name}</div>
-      </div>
-    </div>
+    </>
   )
 }

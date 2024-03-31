@@ -11,7 +11,7 @@ export const useJsonNode = (id: string, data: DataWithLabel) => {
     throw new Error(`Something went wrong, no schema available for node: ${id}`);
   }
 
-  const jsonSchemaType = nodeSchemaData.type as unknown as JsonSchemaType;
+  const jsonSchemaType = nodeSchemaDataForId.type as unknown as JsonSchemaType;
 
   return { label, jsonSchemaType };
 };
