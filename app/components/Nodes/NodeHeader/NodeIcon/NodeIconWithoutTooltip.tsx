@@ -2,11 +2,11 @@ import { JsonSchemaType } from '@/app/JsonSchema';
 import { backgroundColorDM } from '@/app/tailwind-configs';
 import { useNodeIcon } from './useNodeIcon';
 
-interface NodeIconProps {
+interface NodeIconWithoutTooltipProps {
   jsonSchemaType: JsonSchemaType;
 }
 
-export const NodeIcon = ({ jsonSchemaType }: NodeIconProps) => {
+export const NodeIconWithoutTooltip = ({ jsonSchemaType }: NodeIconWithoutTooltipProps) => {
   const { Icon } = useNodeIcon(jsonSchemaType)
 
   return (
