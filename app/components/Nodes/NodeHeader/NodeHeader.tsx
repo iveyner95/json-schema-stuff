@@ -1,6 +1,7 @@
 import { JsonSchemaType } from '@/app/JsonSchema';
 import { Tooltip } from 'react-tooltip';
 import { NodeIcon } from './NodeIcon';
+import { NodeName } from './NodeName';
 
 interface NodeHeaderProps {
   id: string;
@@ -24,9 +25,7 @@ export const NodeHeader = ({ id, name, jsonSchemaType }: NodeHeaderProps) => {
             jsonSchemaType={jsonSchemaType}
           />
         </div>
-        <div className='ml-2'>
-          <div className='font-bold text-lg'>{name}</div>
-        </div>
+        <NodeName name={name} />
       </div>
     </>
   )
