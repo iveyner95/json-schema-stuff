@@ -1,7 +1,9 @@
 import React from 'react';
 import { JsonSchemaType } from '../../../../JsonSchema';
+import { ArrayIcon } from './ArrayIcon';
 import { BooleanIcon } from "./BooleanIcon";
 import { FallbackIcon } from './FallbackIcon';
+import { NullIcon } from './NullIcon';
 import { ObjectIcon } from "./ObjectIcon";
 import { StringIcon } from "./StringIcon";
 
@@ -17,7 +19,9 @@ export const getIconForJsonSchemaType = (jsonSchemaType: JsonSchemaType) => {
 
 // TODO: Add support for other JsonSchemaTypes
 const mapJsonSchemaTypeToIcon: Partial<Record<JsonSchemaType, () => React.JSX.Element>> = {
-  [JsonSchemaType.OBJECT]: ObjectIcon,
+  [JsonSchemaType.ARRAY]: ArrayIcon,
   [JsonSchemaType.BOOLEAN]: BooleanIcon,
+  [JsonSchemaType.NULL]: NullIcon,
+  [JsonSchemaType.OBJECT]: ObjectIcon,
   [JsonSchemaType.STRING]: StringIcon,
 }
