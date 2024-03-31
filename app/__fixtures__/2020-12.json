@@ -67,6 +67,9 @@
     "testAdditionalPropertiesWithFalse": {
       "type": "object",
       "additionalProperties": false
+    },
+    "booleanType": {
+      "type": "boolean"
     }
   },
   "required": [

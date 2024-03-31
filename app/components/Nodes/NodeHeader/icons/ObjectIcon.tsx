@@ -1,4 +1,3 @@
-
 import { NodeIconBase } from './NodeIconBase'
 
 // https://www.flaticon.com/free-icon-font/brackets-curly_9811197?page=1&position=5&term=bracket&origin=search&related_id=9811197

@@ -8,7 +8,7 @@ export const useLayoutedElements = () => {
   const defaultOptions = {
     'elk.algorithm': 'layered',
     'elk.layered.spacing.nodeNodeBetweenLayers': 100,
-    'elk.spacing.nodeNode': 250,
+    'elk.spacing.nodeNode': 500,
     'elk.direction': 'DOWN'
   };
 
