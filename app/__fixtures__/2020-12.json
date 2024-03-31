@@ -73,6 +73,9 @@
     },
     "NullType": {
       "type": "null"
+    },
+    "NumberType": {
+      "type": "number"
     }
   },
   "required": [
