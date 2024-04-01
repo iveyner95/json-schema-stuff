@@ -1,5 +1,5 @@
 import { JsonSchemaType } from '@/app/JsonSchema';
-import { useNodeSchemaDataValue } from "../../FlowChart/FlowChartWIthoutProviders";
+import { useNodeSchemaDataValue } from '../../NodeSchemaData';
 import { DataWithLabel } from './types';
 
 export const useJsonNode = (id: string, data: DataWithLabel) => {
@@ -13,5 +13,5 @@ export const useJsonNode = (id: string, data: DataWithLabel) => {
 
   const jsonSchemaType = nodeSchemaDataForId.type as unknown as JsonSchemaType;
 
-  return { label, jsonSchemaType };
+  return { label, jsonSchemaType, nodeSchemaDataForNode: nodeSchemaDataForId };
 };

@@ -1,17 +1,13 @@
 'use client'
 
 import ReactFlow, {
-  Background, Controls,
-  useEdgesState,
-  useNodesState
+  Background, Controls
 } from 'reactflow';
 
-import { NodeSchemaData } from '@/app/JsonSchema/types';
-import React, { createContext, useContext, useEffect } from 'react';
 import 'reactflow/dist/style.css';
 import { nodeTypes } from '../Nodes';
-import { useLayoutedElements } from './useLayoutedElements';
-import { useSchemaParser } from './useSchemaParser';
+import { NodeSchemaDataProvider } from '../NodeSchemaData';
+import { useFlowChartDataAndCallbacks } from './useFlowChartDataAndCallbacks';
 
 export const FlowChartWithoutProviders = () => {
   const {
@@ -44,49 +40,4 @@ export const FlowChartWithoutProviders = () => {
       </div>
     </div >
   );
-}
-
-
-const useFlowChartDataAndCallbacks = () => {
-  const { edges: initialEdges, nodes: initialNodes, nodeSchemaData } = useSchemaParser();
-  const [edges, , onEdgesChange] = useEdgesState(initialEdges);
-  const [nodes, , onNodesChange] = useNodesState(initialNodes);
-  const { layoutElements } = useLayoutedElements();
-
-  useEffect(() => {
-    layoutElements()
-  }, [])
-
-  return {
-    edges,
-    nodes,
-    nodeSchemaData,
-    onEdgesChange,
-    onNodesChange
-  }
-}
-
-const NodeSchemaDataContext = createContext<NodeSchemaData>({})
-
-interface NodeSchemaDataProviderProps {
-  nodeSchemaData: NodeSchemaData
-  children: React.ReactNode
-}
-
-const NodeSchemaDataProvider = ({ nodeSchemaData, children }: NodeSchemaDataProviderProps) => {
-  return (
-    <NodeSchemaDataContext.Provider value={nodeSchemaData}>
-      {children}
-    </NodeSchemaDataContext.Provider>
-  )
-}
-
-export const useNodeSchemaDataValue = () => {
-  const nodeSchemaData = useContext(NodeSchemaDataContext)
-
-  if (!nodeSchemaData) {
-    throw new Error('Trying to access NodeSchemaData context but not a child')
-  }
-
-  return nodeSchemaData
 }
