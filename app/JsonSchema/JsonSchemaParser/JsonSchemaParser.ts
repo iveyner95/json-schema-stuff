@@ -1,23 +1,18 @@
-import { Edge, Node } from "reactflow";
-import { GlobalJsonSchemaTraverser } from "../JsonSchemaTraversal/GlobalJsonSchemaTraverser";
-import { GlobalJsonSchemaTraverserArgs } from "../JsonSchemaTraversal/types";
-import {
-  AddEdgeFn,
-  AddNodeFn,
-  JsonSchema,
-  NodeSchemaData
-} from '../types';
+import { Edge, Node } from 'reactflow';
+import { GlobalJsonSchemaTraverser } from '../JsonSchemaTraversal/GlobalJsonSchemaTraverser';
+import { GlobalJsonSchemaTraverserArgs } from '../JsonSchemaTraversal/types';
+import { AddEdgeFn, AddNodeFn, JsonSchema, NodeSchemaData } from '../types';
 
 export class JsonSchemaParser {
-  public jsonSchema: JsonSchema
-  public nodes: Node[] = []
-  public edges: Edge[] = []
-  public nodeSchemaData: NodeSchemaData = {}
+  public jsonSchema: JsonSchema;
+  public nodes: Node[] = [];
+  public edges: Edge[] = [];
+  public nodeSchemaData: NodeSchemaData = {};
   private nodeIdCount = 0;
   private edgeIdCount = 0;
 
   constructor(jsonSchema: JsonSchema) {
-    this.jsonSchema = jsonSchema
+    this.jsonSchema = jsonSchema;
   }
 
   parse() {
@@ -25,16 +20,16 @@ export class JsonSchemaParser {
     this.traverseSchema();
   }
 
-  // -------- Parsing Methods -------- 
+  // -------- Parsing Methods --------
   private addRootNode() {
-    this.addNode(ROOT_NODE_LABEL, this.jsonSchema)
+    this.addNode(ROOT_NODE_LABEL, this.jsonSchema);
   }
 
   private traverseSchema() {
     const rootNodeId = this.getLastNodeId();
     const globalJsonSchemaTraverserArgs = this.buildGlobalJsonSchemaTraverserArgs();
-    const globalJsonSchemaTraverser = new GlobalJsonSchemaTraverser(globalJsonSchemaTraverserArgs)
-    globalJsonSchemaTraverser.traverseSchema(this.jsonSchema, rootNodeId)
+    const globalJsonSchemaTraverser = new GlobalJsonSchemaTraverser(globalJsonSchemaTraverserArgs);
+    globalJsonSchemaTraverser.traverseSchema(this.jsonSchema, rootNodeId);
   }
 
   // -------- Parsing Util Methods --------
@@ -43,7 +38,7 @@ export class JsonSchemaParser {
       addNode: this.addNode,
       addEdge: this.addEdge,
       getLastNodeId: this.getLastNodeId,
-    }
+    };
   }
 
   // -------- Graph Element Methods --------
@@ -53,20 +48,19 @@ export class JsonSchemaParser {
     const node: Node = { id, data: { label }, position: DEFAULT_POSITION, type: 'jsonNode' };
     this.nodes.push(node);
     this.nodeSchemaData[id] = jsonSchema;
-  }
+  };
 
   private addEdge: AddEdgeFn = (target: string, source: string) => {
     const id = 'edge-id-' + this.edgeIdCount.toString();
     this.edgeIdCount += 1;
-    const edge: Edge = { id, target, source }
-    this.edges.push(edge)
-  }
+    const edge: Edge = { id, target, source };
+    this.edges.push(edge);
+  };
 
   private getLastNodeId = () => {
-    return this.nodes[this.nodes.length - 1].id
-  }
+    return this.nodes[this.nodes.length - 1].id;
+  };
 }
 
-const ROOT_NODE_LABEL = '_root'
-const DEFAULT_POSITION = { x: 0, y: 0 }
-
+const ROOT_NODE_LABEL = '_root';
+const DEFAULT_POSITION = { x: 0, y: 0 };

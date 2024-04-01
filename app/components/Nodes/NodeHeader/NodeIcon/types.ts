@@ -1,4 +1,4 @@
-import { JsonSchemaType } from "@/app/JsonSchema";
+import { JsonSchemaType } from '@/app/JsonSchema';
 
 export interface NodeIconProps {
   jsonSchemaType: JsonSchemaType;

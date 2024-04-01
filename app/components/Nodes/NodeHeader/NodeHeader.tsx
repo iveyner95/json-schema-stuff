@@ -10,12 +10,9 @@ interface NodeHeaderProps {
 
 export const NodeHeader = ({ id, name, jsonSchemaType }: NodeHeaderProps) => {
   return (
-    <div className='flex items-center p-3'>
-      <NodeIcon
-        jsonSchemaType={jsonSchemaType}
-        id={id}
-      />
+    <div className="flex items-center p-3">
+      <NodeIcon jsonSchemaType={jsonSchemaType} id={id} />
       <NodeName name={name} />
     </div>
-  )
-}
+  );
+};

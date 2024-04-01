@@ -1,9 +1,6 @@
 'use client';
 import { useEffect } from 'react';
-import {
-  useEdgesState,
-  useNodesState
-} from 'reactflow';
+import { useEdgesState, useNodesState } from 'reactflow';
 import { useLayoutedElements } from './useLayoutedElements';
 import { useSchemaParser } from './useSchemaParser';
 
@@ -22,6 +19,6 @@ export const useFlowChartDataAndCallbacks = () => {
     nodes,
     nodeSchemaData,
     onEdgesChange,
-    onNodesChange
+    onNodesChange,
   };
 };

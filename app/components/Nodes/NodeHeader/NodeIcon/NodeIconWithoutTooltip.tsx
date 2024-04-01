@@ -7,7 +7,7 @@ interface NodeIconWithoutTooltipProps {
 }
 
 export const NodeIconWithoutTooltip = ({ jsonSchemaType }: NodeIconWithoutTooltipProps) => {
-  const { Icon } = useNodeIcon(jsonSchemaType)
+  const { Icon } = useNodeIcon(jsonSchemaType);
 
   return (
     <div className={`flex items-center cursor-help hover:opacity-80`}>

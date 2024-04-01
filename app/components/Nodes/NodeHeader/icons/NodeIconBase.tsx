@@ -1,6 +1,6 @@
-import React from "react"
+import React from 'react';
 
-const NODE_ICON_SIZE = "20px"
+const NODE_ICON_SIZE = '20px';
 
 export const NodeIconBase = ({ children }: { children: React.JSX.Element }) => {
   return (
@@ -16,5 +16,5 @@ export const NodeIconBase = ({ children }: { children: React.JSX.Element }) => {
     >
       {children}
     </svg>
-  )
-}
+  );
+};

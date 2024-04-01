@@ -3,44 +3,46 @@ import {
   JsonSchemaTraverser,
   JsonSchemaTypeTraverserArgs,
   JsonTraverseSchemaFn,
-  SubschemaExistsFn
-} from "../types";
+  SubschemaExistsFn,
+} from '../types';
 
 import { ObjectSubschemaKeyValues } from './types';
 
 export class ObjectJsonSchemaTraverser implements JsonSchemaTraverser {
-  private subschemaExists: SubschemaExistsFn
+  private subschemaExists: SubschemaExistsFn;
   private traverseSubschema: JsonTraverseSchemaFn;
 
   constructor({ subschemaExists, traverseSubschema }: JsonSchemaTypeTraverserArgs) {
     this.subschemaExists = subschemaExists;
-    this.traverseSubschema = traverseSubschema
+    this.traverseSubschema = traverseSubschema;
   }
 
   public traverseSchema: JsonTraverseSchemaFn = (schema: JsonSchema, sourceNodeId: string) => {
-    this.traverseNormalSchemas(schema, sourceNodeId)
-    this.traverseAdditionalProperties(schema, sourceNodeId)
-  }
+    this.traverseNormalSchemas(schema, sourceNodeId);
+    this.traverseAdditionalProperties(schema, sourceNodeId);
+  };
 
   private traverseNormalSchemas: JsonTraverseSchemaFn = (
-    schema: JsonSchema, sourceNodeId: string
+    schema: JsonSchema,
+    sourceNodeId: string
   ) => {
     const subschemaKeys = [
       ObjectSubschemaKeyValues.PROPERTIES,
       ObjectSubschemaKeyValues.PATTERN_PROPERTIES,
-      ObjectSubschemaKeyValues.PROPERTY_NAMES
+      ObjectSubschemaKeyValues.PROPERTY_NAMES,
     ];
 
-    subschemaKeys.forEach(subschemaKey => {
+    subschemaKeys.forEach((subschemaKey) => {
       if (this.subschemaExists(schema, subschemaKey)) {
         const subschema = schema[subschemaKey];
         this.traverseSubschema(subschema, sourceNodeId);
       }
     });
-  }
+  };
 
   private traverseAdditionalProperties: JsonTraverseSchemaFn = (
-    schema: JsonSchema, sourceNodeId: string
+    schema: JsonSchema,
+    sourceNodeId: string
   ) => {
     const additionalProperties = ObjectSubschemaKeyValues.ADDITIONAL_PROPERTIES;
     if (this.subschemaExists(schema, additionalProperties)) {
@@ -50,5 +52,5 @@ export class ObjectJsonSchemaTraverser implements JsonSchemaTraverser {
         this.traverseSubschema(subschema, sourceNodeId);
       }
     }
-  }
+  };
 }

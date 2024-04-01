@@ -28,12 +28,7 @@
           "pattern": "\\d{5}"
         }
       },
-      "required": [
-        "street",
-        "city",
-        "state",
-        "postalCode"
-      ]
+      "required": ["street", "city", "state", "postalCode"]
     },
     "hobbies": {
       "type": "array",
@@ -78,8 +73,5 @@
       "type": "number"
     }
   },
-  "required": [
-    "name",
-    "age"
-  ]
+  "required": ["name", "age"]
 }

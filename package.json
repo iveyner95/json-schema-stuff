@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "test": "npm-run-all --max-parallel 1 -p test:*",
+    "test:lint": "next lint",
+    "test:type-check": "tsc",
+    "test:prettier": "npx prettier . --check",
+    "clean": "npm-run-all clean:*",
+    "clean:prettier": "npx prettier . --write"
   },
   "dependencies": {
     "ajv": "^8.12.0",
@@ -24,7 +29,10 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
+    "eslint-config-prettier": "^9.1.0",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8",
+    "prettier": "^3.2.5",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }

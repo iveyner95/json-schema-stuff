@@ -1,8 +1,6 @@
-'use client'
+'use client';
 
-import {
-  ReactFlowProvider
-} from 'reactflow';
+import { ReactFlowProvider } from 'reactflow';
 import 'reactflow/dist/style.css';
 
 import { FlowChartWithoutProviders } from './FlowChartWIthoutProviders';
@@ -13,4 +11,4 @@ export const FlowChart = () => {
       <FlowChartWithoutProviders />
     </ReactFlowProvider>
   );
-}
+};

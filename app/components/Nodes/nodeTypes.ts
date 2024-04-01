@@ -1,3 +1,3 @@
-import { JsonNode } from "./JsonNode";
+import { JsonNode } from './JsonNode';
 
 export const nodeTypes = { jsonNode: JsonNode };

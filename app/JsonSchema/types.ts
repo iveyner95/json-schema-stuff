@@ -1,11 +1,11 @@
-import { Node } from "reactflow";
+import { Node } from 'reactflow';
 
-export type JsonSchema = Partial<Record<string, any>>
-export type JsonTraverseSchemaFn = (schema: JsonSchema, sourceNodeId: string) => void
-export type AddNodeFn = (label: string, jsonSchema: JsonSchema) => void
-export type AddEdgeFn = (target: string, source: string) => void
+export type JsonSchema = Partial<Record<string, any>>;
+export type JsonTraverseSchemaFn = (schema: JsonSchema, sourceNodeId: string) => void;
+export type AddNodeFn = (label: string, jsonSchema: JsonSchema) => void;
+export type AddEdgeFn = (target: string, source: string) => void;
 export type GetLastNodeIdFn = () => string;
-export type SubschemaExistsFn = (schema: JsonSchema, subschemaKey: string) => boolean
+export type SubschemaExistsFn = (schema: JsonSchema, subschemaKey: string) => boolean;
 
 export interface JsonSchemaTraverser {
   traverseSchema: JsonTraverseSchemaFn;
@@ -16,7 +16,7 @@ export interface JsonSchemaTypeTraverserArgs {
   traverseSubschema: JsonTraverseSchemaFn;
 }
 
-export type NodeSchemaData = Record<Node['id'], JsonSchema>
+export type NodeSchemaData = Record<Node['id'], JsonSchema>;
 
 export enum JsonSchemaType {
   STRING = 'string',
@@ -25,5 +25,5 @@ export enum JsonSchemaType {
   OBJECT = 'object',
   ARRAY = 'array',
   BOOLEAN = 'boolean',
-  NULL = 'null'
+  NULL = 'null',
 }

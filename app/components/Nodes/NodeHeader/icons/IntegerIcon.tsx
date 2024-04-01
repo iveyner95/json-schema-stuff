@@ -1,4 +1,4 @@
-import { NodeIconBase } from './NodeIconBase'
+import { NodeIconBase } from './NodeIconBase';
 
 export const IntegerIcon = () => {
   return (
@@ -11,7 +11,7 @@ export const IntegerIcon = () => {
         stroke="#ffffff"
         strokeWidth="0.25mm"
         fill="#ffffff"
-        style={{ stroke: "#ffffff", strokeWidth: "0.25mm", fill: "#ffffff" }}
+        style={{ stroke: '#ffffff', strokeWidth: '0.25mm', fill: '#ffffff' }}
         transform="translate(3 5)"
       >
         <path
@@ -20,5 +20,5 @@ export const IntegerIcon = () => {
         />
       </g>
     </NodeIconBase>
-  )
-}
+  );
+};

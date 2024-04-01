@@ -1,8 +1,6 @@
-'use client'
+'use client';
 
-import ReactFlow, {
-  Background, Controls
-} from 'reactflow';
+import ReactFlow, { Background, Controls } from 'reactflow';
 
 import 'reactflow/dist/style.css';
 import { nodeTypes } from '../Nodes';
@@ -10,21 +8,16 @@ import { NodeSchemaDataProvider } from '../NodeSchemaData';
 import { useFlowChartDataAndCallbacks } from './useFlowChartDataAndCallbacks';
 
 export const FlowChartWithoutProviders = () => {
-  const {
-    edges,
-    nodes,
-    nodeSchemaData,
-    onEdgesChange,
-    onNodesChange
-  } = useFlowChartDataAndCallbacks();
+  const { edges, nodes, nodeSchemaData, onEdgesChange, onNodesChange } =
+    useFlowChartDataAndCallbacks();
 
   return (
-    <div style={{ height: "100vh", width: "100vw", position: 'relative', pointerEvents: 'all' }}>
+    <div style={{ height: '100vh', width: '100vw', position: 'relative', pointerEvents: 'all' }}>
       <div style={{ height: '100%', width: '100%', position: 'absolute', top: 0, left: 0 }}>
         <NodeSchemaDataProvider nodeSchemaData={nodeSchemaData}>
           <ReactFlow
             proOptions={{
-              hideAttribution: true
+              hideAttribution: true,
             }}
             nodes={nodes}
             edges={edges}
@@ -38,6 +31,6 @@ export const FlowChartWithoutProviders = () => {
           </ReactFlow>
         </NodeSchemaDataProvider>
       </div>
-    </div >
+    </div>
   );
-}
+};

@@ -9,7 +9,7 @@ export const useLayoutedElements = () => {
     'elk.algorithm': 'layered',
     'elk.layered.spacing.nodeNodeBetweenLayers': 100,
     'elk.spacing.nodeNode': 500,
-    'elk.direction': 'DOWN'
+    'elk.direction': 'DOWN',
   };
 
   // TODO: improve typing
@@ -24,7 +24,6 @@ export const useLayoutedElements = () => {
 
     // TODO: improve typing
     elk.layout(graph as any).then(({ children }) => {
-
       // TODO: improve typing
       // By mutating the children in-place we saves ourselves from creating a
       // needless copy of the nodes array.
@@ -32,8 +31,7 @@ export const useLayoutedElements = () => {
         node.position = { x: node.x, y: node.y };
       });
 
-
-      setNodes(children || [] as any);
+      setNodes(children || ([] as any));
       window.requestAnimationFrame(() => {
         fitView();
       });
