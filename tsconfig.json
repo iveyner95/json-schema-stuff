@@ -20,7 +20,8 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@/tailwind-configs": ["app/tailwind-configs.ts"]
+      "@/tailwind-configs": ["app/tailwind-configs.ts"],
+      "@/common": ["app/components/common"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

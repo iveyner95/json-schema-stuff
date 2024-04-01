@@ -1,8 +1,8 @@
-import { NodeIconBase } from './NodeIconBase';
+import { IconBase } from '@/common';
 
 export const IntegerIcon = () => {
   return (
-    <NodeIconBase>
+    <IconBase>
       <g
         id="svgGroup"
         strokeLinecap="round"
@@ -19,6 +19,6 @@ export const IntegerIcon = () => {
           vectorEffect="non-scaling-stroke"
         />
       </g>
-    </NodeIconBase>
+    </IconBase>
   );
 };
