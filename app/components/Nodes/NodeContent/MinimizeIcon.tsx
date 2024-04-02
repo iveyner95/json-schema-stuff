@@ -2,7 +2,7 @@ import { IconBase } from '@/common';
 
 export const MinimizeIcon = () => {
   const size = '12px';
-  const fill = 'black';
+  const fill = 'gray';
 
   return (
     <div className="w-6 flex justify-center items-center hover:cursor-pointer">

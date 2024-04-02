@@ -13,6 +13,8 @@
     },
     "address": {
       "type": "object",
+      "minProperties": 0,
+      "maxProperties": 4,
       "properties": {
         "street": {
           "type": "string"
