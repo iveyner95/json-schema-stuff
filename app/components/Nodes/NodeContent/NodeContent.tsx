@@ -1,5 +1,5 @@
 import { JsonSchema } from '@/app/JsonSchema';
-import { backgroundColorSecondary, borderRoundness, borderRoundnessTop, neutralColor } from '@/app/tailwind-configs';
+import { backgroundColorSecondary, borderColor, borderRoundness, borderRoundnessTop, neutralColor } from '@/app/tailwind-configs';
 import { MinimizeIcon } from './MinimizeIcon';
 
 interface NodeContentProps {
@@ -73,8 +73,28 @@ export const SizeContent = ({
   return (
     <NodeContentSection headerText='Size'>
       <div>
-        <div>Min # of Properties: {minProperties}</div>
-        <div>Max # of Properties: {maxProperties}</div>
+        <table className='w-full border-collapse text-xs'>
+          <thead className={`border border-${borderColor}`}>
+            <tr>
+              <th className={`p-2 text-left`}>
+                Description
+              </th>
+              <th className={`p-2 font-bold text-right`}>
+                Value
+              </th>
+            </tr>
+          </thead>
+          <tr className={`border border-${borderColor} bg-neutral-200`}>
+            <td className={`p-2`}>Min # of Properties</td>
+            <td className={`p-2 text-right`}>{minProperties}</td>
+          </tr>
+          <tr className={`border border-${borderColor}`}>
+            <td className={`p-2`}>Max # of Properties</td>
+            <td className={`p-2 text-right`}>{maxProperties}</td>
+          </tr>
+        </table>
+        {/* <div>Min # of Properties: {minProperties}</div>
+        <div>Max # of Properties: {maxProperties}</div> */}
       </div>
     </NodeContentSection>
   )
