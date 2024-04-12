@@ -20,6 +20,6 @@ export const SizeContentRow = ({ propertyKey, value, isEven }: SizeContentRowPro
 };
 
 const keyOfSizeDataToDescriptionText: Record<keyof SizeData, string> = {
-  'minProperties': 'Min # of Properties',
-  'maxProperties': 'Max # of Properties'
+  minProperties: 'Min # of Properties',
+  maxProperties: 'Max # of Properties',
 };

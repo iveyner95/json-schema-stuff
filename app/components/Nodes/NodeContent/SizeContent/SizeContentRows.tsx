@@ -10,7 +10,14 @@ export const SizeContentRows = ({ sizeDataEntries }: SizeContentRowsProps) => {
     <>
       {sizeDataEntries.map(([propertyKey, value], index) => {
         const isEven = index % 2 == 0;
-        return <SizeContentRow propertyKey={propertyKey} value={value} isEven={isEven} />;
+        return (
+          <SizeContentRow
+            key={`size-content-row-${index}`}
+            propertyKey={propertyKey}
+            value={value}
+            isEven={isEven}
+          />
+        );
       })}
     </>
   );
