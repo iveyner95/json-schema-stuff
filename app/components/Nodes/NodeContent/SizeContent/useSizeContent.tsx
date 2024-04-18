@@ -5,7 +5,14 @@ import { SizeData, SizeDataEntries } from './types';
 export const useSizeContent = (nodeSchemaDataForNode: JsonSchema): SizeDataEntries => {
   const sizeData: SizeData = {};
 
-  const properties: string[] = [JsonSchemaKeyWord.MIN_PROPERTIES, JsonSchemaKeyWord.MAX_PROPERTIES, JsonSchemaKeyWord.MIN_ITEMS, JsonSchemaKeyWord.MAX_ITEMS];
+  const properties: string[] = [
+    JsonSchemaKeyWord.MIN_PROPERTIES,
+    JsonSchemaKeyWord.MAX_PROPERTIES,
+    JsonSchemaKeyWord.MIN_ITEMS,
+    JsonSchemaKeyWord.MAX_ITEMS,
+    JsonSchemaKeyWord.MIN_LENGTH,
+    JsonSchemaKeyWord.MAX_LENGTH,
+  ];
 
   properties.forEach((property) => {
     const value = nodeSchemaDataForNode[property];

@@ -3,4 +3,6 @@ export enum JsonSchemaKeyWord {
   MAX_PROPERTIES = 'maxProperties',
   MIN_ITEMS = 'minItems',
   MAX_ITEMS = 'maxItems',
+  MIN_LENGTH = 'minLength',
+  MAX_LENGTH = 'maxLength',
 }
