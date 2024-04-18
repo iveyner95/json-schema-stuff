@@ -45,7 +45,9 @@
         "propertyNames": {
           "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
         }
-      }
+      },
+      "minItems": 2,
+      "maxItems": 4
     },
     "testPatternPropertiesObj": {
       "type": "object",
