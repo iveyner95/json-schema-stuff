@@ -1,5 +1,6 @@
 import { JsonSchemaKeyWord } from '../types';
 
+// TODO: is this still needed?
 export interface SizeData {
   [JsonSchemaKeyWord.MIN_PROPERTIES]?: number;
   [JsonSchemaKeyWord.MAX_PROPERTIES]?: number;
@@ -8,5 +9,3 @@ export interface SizeData {
   [JsonSchemaKeyWord.MIN_LENGTH]?: number;
   [JsonSchemaKeyWord.MAX_LENGTH]?: number;
 }
-
-export type SizeDataEntries = [keyof SizeData, number][];

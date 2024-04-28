@@ -1,9 +1,10 @@
 import { JsonSchema } from '@/app/JsonSchema';
+import { RowData } from '../NodeContentTable';
 import { JsonSchemaKeyWord } from '../types';
-import { SizeData, SizeDataEntries } from './types';
+import { SizeData } from './types';
 
-export const useSizeContent = (nodeSchemaDataForNode: JsonSchema): SizeDataEntries => {
-  const sizeData: SizeData = {};
+export const useSizeContent = (nodeSchemaDataForNode: JsonSchema) => {
+  const sizeContentRowData: RowData[] = [];
 
   const properties: string[] = [
     JsonSchemaKeyWord.MIN_PROPERTIES,
@@ -18,11 +19,20 @@ export const useSizeContent = (nodeSchemaDataForNode: JsonSchema): SizeDataEntri
     const value = nodeSchemaDataForNode[property];
 
     if (value !== undefined && typeof value === 'number') {
-      sizeData[property as keyof SizeData] = value;
+      const description = keyOfSizeDataToDescriptionText[property as keyof SizeData]
+      sizeContentRowData.push([description, value]);
     }
   });
 
-  const sizeDataEntries: SizeDataEntries = Object.entries(sizeData) as SizeDataEntries;
 
-  return sizeDataEntries;
+  return sizeContentRowData;
+};
+
+const keyOfSizeDataToDescriptionText: Record<keyof SizeData, string> = {
+  minProperties: 'Minimum # of Properties',
+  maxProperties: 'Maximum # of Properties',
+  minItems: 'Minimum # of Items',
+  maxItems: 'Maximum # of Items',
+  minLength: 'Minimum length',
+  maxLength: 'Maximum length',
 };

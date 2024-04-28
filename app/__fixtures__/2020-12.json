@@ -76,7 +76,8 @@
       "type": "null"
     },
     "NumberType": {
-      "type": "number"
+      "type": "number",
+      "multipleOf": 10
     }
   },
   "required": ["name", "age"]
