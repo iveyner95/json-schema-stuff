@@ -1,13 +1,13 @@
-import { NodeContentTableRows } from "./NodeContentTableRows"
-import { RowData } from "./types"
+import { NodeContentTableRows } from './NodeContentTableRows';
+import { RowData } from './types';
 
 export interface NodeContentTableProps {
-  rowsData: RowData[]
+  rowsData: RowData[];
 }
 
 export const NodeContentTable = ({ rowsData }: NodeContentTableProps) => {
   return (
-    <table className="w-full border-collapse text-xs" >
+    <table className="w-full border-collapse text-xs">
       <thead>
         <tr>
           <th className={`p-2 text-left`}>Description</th>
@@ -15,6 +15,6 @@ export const NodeContentTable = ({ rowsData }: NodeContentTableProps) => {
         </tr>
       </thead>
       <NodeContentTableRows rowsData={rowsData} />
-    </table >
-  )
-}
+    </table>
+  );
+};

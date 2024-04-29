@@ -13,6 +13,6 @@ export const SizeContent = ({ nodeSchemaDataForNode }: InnerNodeContentProps) =>
   return (
     <NodeContentSection headerText="Size">
       <NodeContentTable rowsData={sizeContentRowData} />
-    </NodeContentSection >
+    </NodeContentSection>
   );
 };

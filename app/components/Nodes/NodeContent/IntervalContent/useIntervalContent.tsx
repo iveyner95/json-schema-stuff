@@ -1,6 +1,6 @@
 import { JsonSchema } from '@/app/JsonSchema';
-import { RowData } from './NodeContentTable';
-import { JsonSchemaKeyWord } from './types';
+import { RowData } from '../NodeContentTable';
+import { JsonSchemaKeyWord } from '../types';
 
 export const useIntervalContent = (nodeSchemaDataForNode: JsonSchema) => {
   const multipleOfContentRowData: RowData[] = [];

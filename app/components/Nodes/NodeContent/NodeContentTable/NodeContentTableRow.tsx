@@ -1,5 +1,5 @@
-import { borderColor } from "@/app/tailwind-configs";
-import { RowData } from "./types";
+import { borderColor } from '@/app/tailwind-configs';
+import { RowData } from './types';
 
 export const NodeContentTableRow = ({ rowData, isEven }: NodeContentTableRowProps) => {
   const [leftValue, rightValue] = rowData;

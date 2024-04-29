@@ -18,11 +18,10 @@ export const useSizeContent = (nodeSchemaDataForNode: JsonSchema) => {
     const value = nodeSchemaDataForNode[property];
 
     if (value !== undefined && typeof value === 'number') {
-      const description = keyOfSizeDataToDescriptionText[property as keyof SizeData]
+      const description = keyOfSizeDataToDescriptionText[property as keyof SizeData];
       sizeContentRowData.push([description, value]);
     }
   });
-
 
   return sizeContentRowData;
 };
