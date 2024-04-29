@@ -7,8 +7,8 @@ const INFO_ICON_SIZE = '12px';
 
 export const TooltipContent = ({ headerText, text }: TooltipContentProps) => {
   return (
-    <div className="flex">
-      <div className="mt-1">
+    <div className="flex items-center">
+      <div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           id="Isolation_Mode"
@@ -23,7 +23,7 @@ export const TooltipContent = ({ headerText, text }: TooltipContentProps) => {
           <circle cx="12.284" cy="6.75" r="1.716" />
         </svg>
       </div>
-      <div className="ml-2">
+      <div className="ml-3">
         <div className="font-bold underline">{headerText}</div>
         <div>{text}</div>
       </div>
