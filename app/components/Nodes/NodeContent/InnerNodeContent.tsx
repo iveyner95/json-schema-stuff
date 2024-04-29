@@ -8,8 +8,7 @@ export interface InnerNodeContentProps {
 
 export const InnerNodeContent = ({ nodeSchemaDataForNode }: InnerNodeContentProps) => {
   return (
-    // TODO: 
-    <div className=''>
+    <div>
       <SizeContent nodeSchemaDataForNode={nodeSchemaDataForNode} />
       <IntervalContent nodeSchemaDataForNode={nodeSchemaDataForNode} />
     </div>

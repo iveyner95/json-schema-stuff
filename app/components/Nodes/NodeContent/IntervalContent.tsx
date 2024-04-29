@@ -1,31 +1,18 @@
-import { JsonSchema } from '@/app/JsonSchema';
 import { InnerNodeContentProps } from './InnerNodeContent';
 import { NodeContentSection } from './NodeContentSection';
-import { JsonSchemaKeyWord } from './types';
+import { NodeContentTable } from './NodeContentTable';
+import { useIntervalContent } from './useIntervalContent';
 
 export const IntervalContent = ({ nodeSchemaDataForNode }: InnerNodeContentProps) => {
-  const multipleOf = useIntervalContent(nodeSchemaDataForNode)
+  const multipleOfContentRowData = useIntervalContent(nodeSchemaDataForNode)
 
-  if (multipleOf === undefined) {
+  if (multipleOfContentRowData.length === 0) {
     return null
   }
 
   return (
     <NodeContentSection headerText="Interval">
-      <div className='p-2 text-xs'>
-        Multiple of
-        <span className='font-bold'>
-          {multipleOf}
-        </span>
-      </div>
+      <NodeContentTable rowsData={multipleOfContentRowData} />
     </NodeContentSection>
   );
 };
-
-/* TODO 
-  - return type
-  - separate file
-*/
-const useIntervalContent = (nodeSchemaDataForNode: JsonSchema): number | undefined => {
-  return nodeSchemaDataForNode[JsonSchemaKeyWord.MULTIPLE_OF]
-}

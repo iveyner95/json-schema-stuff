@@ -1,7 +1,6 @@
 import { JsonSchema } from '@/app/JsonSchema';
 import { RowData } from '../NodeContentTable';
 import { JsonSchemaKeyWord } from '../types';
-import { SizeData } from './types';
 
 export const useSizeContent = (nodeSchemaDataForNode: JsonSchema) => {
   const sizeContentRowData: RowData[] = [];
@@ -36,3 +35,12 @@ const keyOfSizeDataToDescriptionText: Record<keyof SizeData, string> = {
   minLength: 'Minimum length',
   maxLength: 'Maximum length',
 };
+
+interface SizeData {
+  [JsonSchemaKeyWord.MIN_PROPERTIES]?: number;
+  [JsonSchemaKeyWord.MAX_PROPERTIES]?: number;
+  [JsonSchemaKeyWord.MIN_ITEMS]?: number;
+  [JsonSchemaKeyWord.MAX_ITEMS]?: number;
+  [JsonSchemaKeyWord.MIN_LENGTH]?: number;
+  [JsonSchemaKeyWord.MAX_LENGTH]?: number;
+}
