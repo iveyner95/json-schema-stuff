@@ -1,6 +1,6 @@
-import { JsonSchema } from "@/app/JsonSchema";
-import { RowData } from "../NodeContentTable";
-import { JsonSchemaKeyWord } from "../types";
+import { JsonSchema } from '@/app/JsonSchema';
+import { RowData } from '../NodeContentTable';
+import { JsonSchemaKeyWord } from '../types';
 
 export const useRangeContent = (nodeSchemaDataForNode: JsonSchema) => {
   const sizeContentRowData: RowData[] = [];

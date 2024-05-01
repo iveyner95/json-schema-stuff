@@ -1,13 +1,13 @@
-import { InnerNodeContentProps } from "../InnerNodeContent";
-import { NodeContentSection } from "../NodeContentSection";
-import { NodeContentTable } from "../NodeContentTable";
-import { useRangeContent } from "./useRangeContent";
+import { InnerNodeContentProps } from '../InnerNodeContent';
+import { NodeContentSection } from '../NodeContentSection';
+import { NodeContentTable } from '../NodeContentTable';
+import { useRangeContent } from './useRangeContent';
 
 export const RangeContent = ({ nodeSchemaDataForNode }: InnerNodeContentProps) => {
   const rangeContentRowData = useRangeContent(nodeSchemaDataForNode);
 
   if (rangeContentRowData.length === 0) {
-    return null
+    return null;
   }
 
   return (
@@ -15,4 +15,4 @@ export const RangeContent = ({ nodeSchemaDataForNode }: InnerNodeContentProps) =
       <NodeContentTable rowsData={rangeContentRowData} />
     </NodeContentSection>
   );
-}
+};

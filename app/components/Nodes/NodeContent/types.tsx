@@ -9,5 +9,5 @@ export enum JsonSchemaKeyWord {
   MINIMUM = 'minimum',
   MAXIMUM = 'maximum',
   EXCLUSIVE_MINIMUM = 'exclusiveMinimum',
-  EXCLUSIVE_MAXIMUM = 'exclusiveMaximum'
+  EXCLUSIVE_MAXIMUM = 'exclusiveMaximum',
 }
