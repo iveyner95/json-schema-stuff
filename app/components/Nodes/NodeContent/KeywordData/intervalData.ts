@@ -1,12 +1,16 @@
 import { JsonSchemaKeyWord, KeywordData } from '../types';
 
-interface IntervalData {
-  [JsonSchemaKeyWord.MULTIPLE_OF]?: number;
+enum IntervalDataKeyword {
+  MULTIPLE_OF = JsonSchemaKeyWord.MULTIPLE_OF,
 }
 
-const intervalDataKeywords: string[] = [JsonSchemaKeyWord.MULTIPLE_OF];
+export interface IntervalData {
+  [IntervalDataKeyword.MULTIPLE_OF]?: number;
+}
 
-const intervalDataKeywordsToDescriptionText: Record<keyof IntervalData, string> = {
+const intervalDataKeywords: string[] = [IntervalDataKeyword.MULTIPLE_OF];
+
+const intervalDataKeywordsToDescriptionText: Record<IntervalDataKeyword, string> = {
   multipleOf: 'Multiple of',
 };
 

@@ -1,24 +1,30 @@
 import { JsonSchemaKeyWord, KeywordData } from '../types';
 
-interface RangeData {
-  [JsonSchemaKeyWord.MINIMUM]?: number;
-  [JsonSchemaKeyWord.MAXIMUM]?: number;
-  [JsonSchemaKeyWord.EXCLUSIVE_MINIMUM]?: number;
-  [JsonSchemaKeyWord.EXCLUSIVE_MAXIMUM]?: number;
+enum RangeDataKeyword {
+  MINIMUM = JsonSchemaKeyWord.MINIMUM,
+  MAXIMUM = JsonSchemaKeyWord.MAXIMUM,
+  EXCLUSIVE_MINIMUM = JsonSchemaKeyWord.EXCLUSIVE_MINIMUM,
+  EXCLUSIVE_MAXIMUM = JsonSchemaKeyWord.EXCLUSIVE_MAXIMUM,
+}
+export interface RangeData {
+  [RangeDataKeyword.MINIMUM]?: number;
+  [RangeDataKeyword.MAXIMUM]?: number;
+  [RangeDataKeyword.EXCLUSIVE_MINIMUM]?: number;
+  [RangeDataKeyword.EXCLUSIVE_MAXIMUM]?: number;
 }
 
 const rangeDataKeywords: string[] = [
-  JsonSchemaKeyWord.MINIMUM,
-  JsonSchemaKeyWord.MAXIMUM,
-  JsonSchemaKeyWord.EXCLUSIVE_MINIMUM,
-  JsonSchemaKeyWord.EXCLUSIVE_MINIMUM,
+  RangeDataKeyword.MINIMUM,
+  RangeDataKeyword.MAXIMUM,
+  RangeDataKeyword.EXCLUSIVE_MINIMUM,
+  RangeDataKeyword.EXCLUSIVE_MINIMUM,
 ];
 
-const keyOfRangeDataToDescriptionText: Record<keyof RangeData, string> = {
-  minimum: 'Minimum # (inclusive)',
-  maximum: 'Maximum # (inclusive)',
-  exclusiveMinimum: 'Minimum # (exclusive)',
-  exclusiveMaximum: 'Maximum # (exclusive)',
+const keyOfRangeDataToDescriptionText: Record<RangeDataKeyword, string> = {
+  [RangeDataKeyword.MINIMUM]: 'Inclusive minimum #',
+  [RangeDataKeyword.MAXIMUM]: 'Inclusive maximum #',
+  [RangeDataKeyword.EXCLUSIVE_MINIMUM]: 'Exclusive minimum #',
+  [RangeDataKeyword.EXCLUSIVE_MAXIMUM]: 'Exclusive maximum #',
 };
 
 export const rangeContentKeywordData: KeywordData = {
