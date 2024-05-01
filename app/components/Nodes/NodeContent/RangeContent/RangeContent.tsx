@@ -4,7 +4,6 @@ import { NodeContentTable } from "../NodeContentTable";
 import { useRangeContent } from "./useRangeContent";
 
 export const RangeContent = ({ nodeSchemaDataForNode }: InnerNodeContentProps) => {
-  // A lot of this can be refactored
   const rangeContentRowData = useRangeContent(nodeSchemaDataForNode);
 
   if (rangeContentRowData.length === 0) {
