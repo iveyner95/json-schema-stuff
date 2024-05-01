@@ -6,4 +6,8 @@ export enum JsonSchemaKeyWord {
   MIN_LENGTH = 'minLength',
   MAX_LENGTH = 'maxLength',
   MULTIPLE_OF = 'multipleOf',
+  MINIMUM = 'minimum',
+  MAXIMUM = 'maximum',
+  EXCLUSIVE_MINIMUM = 'exclusiveMinimum',
+  EXCLUSIVE_MAXIMUM = 'exclusiveMaximum'
 }
