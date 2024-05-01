@@ -11,3 +11,8 @@ export enum JsonSchemaKeyWord {
   EXCLUSIVE_MINIMUM = 'exclusiveMinimum',
   EXCLUSIVE_MAXIMUM = 'exclusiveMaximum',
 }
+
+export interface KeywordData {
+  keywords: string[];
+  keywordsToDescription: Record<string, string>;
+}

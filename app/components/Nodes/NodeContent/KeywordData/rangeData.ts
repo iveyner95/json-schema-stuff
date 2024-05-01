@@ -1,5 +1,4 @@
-import { KeywordData } from '../InnerNodeContent';
-import { JsonSchemaKeyWord } from '../types';
+import { JsonSchemaKeyWord, KeywordData } from '../types';
 
 interface RangeData {
   [JsonSchemaKeyWord.MINIMUM]?: number;
