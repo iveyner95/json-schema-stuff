@@ -1,18 +1,24 @@
 import { JsonSchema } from '@/app/JsonSchema';
-import { IntervalContent } from './IntervalContent';
-import { RangeContent } from './RangeContent';
-import { SizeContent } from './SizeContent';
+import { NodeContentSectionWithTable } from './NodeContentSectionWithTable';
+import { useInnerNodeContent } from './useInnerNodeContent';
 
 export interface InnerNodeContentProps {
   nodeSchemaDataForNode: JsonSchema;
 }
 
 export const InnerNodeContent = ({ nodeSchemaDataForNode }: InnerNodeContentProps) => {
+  const { contentDataArr } = useInnerNodeContent();
+
   return (
     <div>
-      <SizeContent nodeSchemaDataForNode={nodeSchemaDataForNode} />
-      <RangeContent nodeSchemaDataForNode={nodeSchemaDataForNode} />
-      <IntervalContent nodeSchemaDataForNode={nodeSchemaDataForNode} />
+      {contentDataArr.map(([headerText, keywordData], index) => (
+        <NodeContentSectionWithTable
+          key={`NodeContentSectionWithTable-${index}`}
+          nodeSchemaDataForNode={nodeSchemaDataForNode}
+          headerText={headerText}
+          keywordData={keywordData}
+        />
+      ))}
     </div>
   );
 };
