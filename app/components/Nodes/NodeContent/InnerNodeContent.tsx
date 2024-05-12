@@ -7,16 +7,19 @@ export interface InnerNodeContentProps {
 }
 
 export const InnerNodeContent = ({ nodeSchemaDataForNode }: InnerNodeContentProps) => {
-  const { contentDataArr } = useInnerNodeContent();
+  const { contentDataArr, isEmpty } = useInnerNodeContent(nodeSchemaDataForNode);
+
+  if (isEmpty) {
+    return null;
+  }
 
   return (
-    <div className='flex flex-col gap-6'>
-      {contentDataArr.map(([headerText, keywordData], index) => (
+    <div className="flex flex-col gap-6">
+      {contentDataArr.map(([headerText, rowsData], index) => (
         <NodeContentSectionWithTable
           key={`NodeContentSectionWithTable-${index}`}
-          nodeSchemaDataForNode={nodeSchemaDataForNode}
           headerText={headerText}
-          keywordData={keywordData}
+          rowsData={rowsData}
         />
       ))}
     </div>

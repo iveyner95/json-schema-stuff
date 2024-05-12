@@ -1,7 +1,4 @@
-import {
-  backgroundColorSecondary,
-  neutralColor
-} from '@/app/tailwind-configs';
+import { backgroundColorSecondary, neutralColor } from '@/app/tailwind-configs';
 import { MinimizeIcon } from './MinimizeIcon';
 
 interface NodeContentSectionProps {

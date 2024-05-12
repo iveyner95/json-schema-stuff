@@ -1,16 +1,10 @@
-import { InnerNodeContentProps } from '../InnerNodeContent';
-import { KeywordData } from '../types';
 import { NodeContentSection } from './NodeContentSection';
-import { NodeContentTable } from './NodeContentTable';
-import { useRowsData } from './useRowsData';
+import { NodeContentTable, RowData } from './NodeContentTable';
 
 export const NodeContentSectionWithTable = ({
-  nodeSchemaDataForNode,
   headerText,
-  keywordData,
+  rowsData,
 }: NodeContentSectionWithTableProps) => {
-  const { rowsData } = useRowsData(nodeSchemaDataForNode, keywordData);
-
   if (rowsData.length === 0) {
     return null;
   }
@@ -22,7 +16,7 @@ export const NodeContentSectionWithTable = ({
   );
 };
 
-interface NodeContentSectionWithTableProps extends InnerNodeContentProps {
+interface NodeContentSectionWithTableProps {
   headerText: string;
-  keywordData: KeywordData;
+  rowsData: RowData[];
 }
