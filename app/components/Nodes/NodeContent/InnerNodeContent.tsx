@@ -10,7 +10,7 @@ export const InnerNodeContent = ({ nodeSchemaDataForNode }: InnerNodeContentProp
   const { contentDataArr } = useInnerNodeContent();
 
   return (
-    <div>
+    <div className='flex flex-col gap-6'>
       {contentDataArr.map(([headerText, keywordData], index) => (
         <NodeContentSectionWithTable
           key={`NodeContentSectionWithTable-${index}`}
