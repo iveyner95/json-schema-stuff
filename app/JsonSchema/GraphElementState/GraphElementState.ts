@@ -1,7 +1,6 @@
 import { Edge, Node } from 'reactflow';
 import { AddEdgeFn, AddNodeFn, JsonSchema, NodeSchemaData } from '../types';
 
-// TODO: add tests
 export class GraphElementState {
   public nodeSchemaData: NodeSchemaData = {};
   public nodes: Node[] = [];

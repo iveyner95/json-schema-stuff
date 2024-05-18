@@ -1,1 +1,1 @@
-export * from './generateGlobalJsonSchemaTraverser';
+export * from './JsonSchemaTraverser';
