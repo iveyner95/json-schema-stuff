@@ -9,9 +9,13 @@ export const useSchemaParser = () => {
   const schema: JSON = Draft12 as unknown as JSON; // Hardcoded for now
 
   // TODO: memoize this?
-  const graphElementState = new GraphElementState()
+  const graphElementState = new GraphElementState();
   const jsonSchemaTraverser = new JsonSchemaTraverser({ graphElementState });
-  const jsonSchemaTraverserInitializer = new JsonSchemaTraverserInitializer(schema, graphElementState, jsonSchemaTraverser);
+  const jsonSchemaTraverserInitializer = new JsonSchemaTraverserInitializer(
+    schema,
+    graphElementState,
+    jsonSchemaTraverser
+  );
   jsonSchemaTraverserInitializer.parse();
 
   return {
