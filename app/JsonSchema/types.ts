@@ -7,7 +7,7 @@ export type AddEdgeFn = (target: string, source: string) => void;
 export type GetLastNodeIdFn = () => string;
 export type SubschemaExistsFn = (schema: JsonSchema, subschemaKey: string) => boolean;
 
-export interface JsonSchemaTraverser {
+export interface IJsonSchemaTraverser {
   traverseSchema: JsonTraverseSchemaFn;
 }
 

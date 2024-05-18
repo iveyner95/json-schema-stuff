@@ -1,6 +1,6 @@
 import {
+  IJsonSchemaTraverser,
   JsonSchema,
-  JsonSchemaTraverser,
   JsonSchemaTypeTraverserArgs,
   JsonTraverseSchemaFn,
   SubschemaExistsFn,
@@ -8,7 +8,7 @@ import {
 
 import { ObjectSubschemaKeyValues } from './types';
 
-export class ObjectJsonSchemaTraverser implements JsonSchemaTraverser {
+export class ObjectJsonSchemaTraverser implements IJsonSchemaTraverser {
   private subschemaExists: SubschemaExistsFn;
   private traverseSubschema: JsonTraverseSchemaFn;
 

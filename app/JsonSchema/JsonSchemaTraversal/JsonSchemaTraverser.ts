@@ -1,26 +1,20 @@
-import { ObjectJsonSchemaTraverser } from '../JsonSchemaTraversal/ObjectJsonSchemaTraverser';
+import { GraphElementState } from '../GraphElementState';
 import {
-  AddEdgeFn,
-  AddNodeFn,
-  GetLastNodeIdFn,
+  IJsonSchemaTraverser,
   JsonSchema,
-  JsonSchemaTraverser,
   JsonSchemaType,
   JsonSchemaTypeTraverserArgs,
   JsonTraverseSchemaFn,
   SubschemaExistsFn,
 } from '../types';
+import { ObjectJsonSchemaTraverser } from './ObjectJsonSchemaTraverser';
 import { GlobalJsonSchemaTraverserArgs } from './types';
 
-export class GlobalJsonSchemaTraverser {
-  private addNode: AddNodeFn;
-  private addEdge: AddEdgeFn;
-  private getLastNodeId: GetLastNodeIdFn;
+export class JsonSchemaTraverser {
+  private graphElementState: GraphElementState;
 
-  constructor({ addNode, addEdge, getLastNodeId }: GlobalJsonSchemaTraverserArgs) {
-    this.addNode = addNode;
-    this.addEdge = addEdge;
-    this.getLastNodeId = getLastNodeId;
+  constructor({ graphElementState }: GlobalJsonSchemaTraverserArgs) {
+    this.graphElementState = graphElementState;
   }
 
   public traverseSchema(jsonSchema: JsonSchema, sourceNodeId: string) {
@@ -34,15 +28,15 @@ export class GlobalJsonSchemaTraverser {
 
   private traverseSubschema: JsonTraverseSchemaFn = (schema: JsonSchema, sourceNodeId: string) => {
     Object.entries(schema).forEach(([key, subschema]: [string, JSON]) => {
-      this.addNode(key, subschema);
-      const lastNodeId = this.getLastNodeId();
-      this.addEdge(lastNodeId, sourceNodeId);
+      this.graphElementState.addNode(key, subschema);
+      const lastNodeId = this.graphElementState.getLastNodeId();
+      this.graphElementState.addEdge(lastNodeId, sourceNodeId);
       this.traverseSchema(subschema, lastNodeId);
     });
   };
 
   private getSchemaTraversers = (schemaTypeOrTypes: JsonSchemaType | JsonSchemaType[]) => {
-    const jsonSchemaTraversers: JsonSchemaTraverser[] = [];
+    const jsonSchemaTraversers: IJsonSchemaTraverser[] = [];
     const jsonSchemaTypeTraverserArgs = this.buildJsonSchemaTypeTraverserArgs();
 
     const addJsonSchemaTraverser = (jsonSchemaType: JsonSchemaType) => {
@@ -83,7 +77,7 @@ export class GlobalJsonSchemaTraverser {
     jsonSchemaTypeTraverserArgs: JsonSchemaTypeTraverserArgs
   ) => {
     // TODO: Add other SchemaType Traversers
-    const typeToJsonSchemaTraverser: Partial<Record<JsonSchemaType, JsonSchemaTraverser>> = {
+    const typeToJsonSchemaTraverser: Partial<Record<JsonSchemaType, IJsonSchemaTraverser>> = {
       [JsonSchemaType.OBJECT]: new ObjectJsonSchemaTraverser(jsonSchemaTypeTraverserArgs),
     };
 

@@ -1,4 +1,4 @@
-import { AddEdgeFn, AddNodeFn, GetLastNodeIdFn } from '../types';
+import { GraphElementState } from '../GraphElementState';
 
 export enum ObjectSubschemaKeyValues {
   PROPERTIES = 'properties',
@@ -8,7 +8,5 @@ export enum ObjectSubschemaKeyValues {
 }
 
 export interface GlobalJsonSchemaTraverserArgs {
-  addNode: AddNodeFn;
-  addEdge: AddEdgeFn;
-  getLastNodeId: GetLastNodeIdFn;
+  graphElementState: GraphElementState;
 }
