@@ -1,5 +1,5 @@
 import { Edge, Node } from 'reactflow';
-import { AddEdgeFn, AddNodeFn, NodeSchemaData } from '../types';
+import { JsonSchema, NodeSchemaData } from '../types';
 
 export interface IGraphElementState {
   nodeSchemaData: NodeSchemaData;
@@ -7,5 +7,9 @@ export interface IGraphElementState {
   edges: Edge[];
   addNode: AddNodeFn;
   addEdge: AddEdgeFn;
-  getLastNodeId: () => string;
+  getLastNodeId: GetLastNodeIdFn;
 }
+
+type AddNodeFn = (label: string, jsonSchema: JsonSchema) => void;
+type AddEdgeFn = (target: string, source: string) => void;
+type GetLastNodeIdFn = () => string;
