@@ -1,5 +1,5 @@
-import { IJsonSchemaTraverser, JsonSchemaType } from '../../../types';
-import { IJsonSubschemaTraverser } from '../../types';
+import { JsonSchemaType } from '../../../types';
+import { IJsonSchemaTraverser, IJsonSubschemaTraverser } from '../../types';
 import { ObjectJsonSchemaTraverser } from './ObjectJsonSchemaTraverser';
 
 // TODO: add test

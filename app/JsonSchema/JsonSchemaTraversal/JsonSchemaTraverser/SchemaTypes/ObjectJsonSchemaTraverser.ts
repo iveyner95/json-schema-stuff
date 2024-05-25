@@ -1,5 +1,5 @@
-import { IJsonSchemaTraverser, JsonSchema, JsonTraverseSchemaFn } from '@/app/JsonSchema/types';
-import { IJsonSubschemaTraverser } from '../../types';
+import { JsonSchema } from '@/app/JsonSchema/types';
+import { IJsonSchemaTraverser, IJsonSubschemaTraverser } from '../../types';
 import { subschemaExists } from '../utils';
 
 import { ObjectSubschemaKeyValues } from './types';
@@ -12,15 +12,12 @@ export class ObjectJsonSchemaTraverser implements IJsonSchemaTraverser {
     this.subschemaTraverser = subschemaTraverser;
   }
 
-  public traverseSchema: JsonTraverseSchemaFn = (schema: JsonSchema, sourceNodeId: string) => {
+  public traverseSchema = (schema: JsonSchema, sourceNodeId: string) => {
     this.traverseNormalSchemas(schema, sourceNodeId);
     this.traverseAdditionalProperties(schema, sourceNodeId);
   };
 
-  private traverseNormalSchemas: JsonTraverseSchemaFn = (
-    schema: JsonSchema,
-    sourceNodeId: string
-  ) => {
+  private traverseNormalSchemas = (schema: JsonSchema, sourceNodeId: string) => {
     const subschemaKeys = [
       ObjectSubschemaKeyValues.PROPERTIES,
       ObjectSubschemaKeyValues.PATTERN_PROPERTIES,
@@ -35,10 +32,7 @@ export class ObjectJsonSchemaTraverser implements IJsonSchemaTraverser {
     });
   };
 
-  private traverseAdditionalProperties: JsonTraverseSchemaFn = (
-    schema: JsonSchema,
-    sourceNodeId: string
-  ) => {
+  private traverseAdditionalProperties = (schema: JsonSchema, sourceNodeId: string) => {
     const additionalProperties = ObjectSubschemaKeyValues.ADDITIONAL_PROPERTIES;
     if (subschemaExists(schema, additionalProperties)) {
       const subschema: JsonSchema | false = schema[additionalProperties];

@@ -1,6 +1,6 @@
 import { IGraphElementState } from '../../GraphElementState/types';
-import { JsonSchema, JsonTraverseSchemaFn } from '../../types';
-import { IJsonSubschemaTraverser } from '../types';
+import { JsonSchema } from '../../types';
+import { IJsonSubschemaTraverser, JsonTraverseSchemaFn } from '../types';
 
 export class JsonSubschemaTraverser implements IJsonSubschemaTraverser {
   private graphElementState: IGraphElementState;
@@ -11,7 +11,7 @@ export class JsonSubschemaTraverser implements IJsonSubschemaTraverser {
     this.traverseSchema = traverseSchema;
   }
 
-  traverseSubschema: JsonTraverseSchemaFn = (schema: JsonSchema, sourceNodeId: string) => {
+  traverseSubschema = (schema: JsonSchema, sourceNodeId: string) => {
     Object.entries(schema).forEach(([key, subschema]: [string, JSON]) => {
       this.graphElementState.addNode(key, subschema);
       const lastNodeId = this.graphElementState.getLastNodeId();

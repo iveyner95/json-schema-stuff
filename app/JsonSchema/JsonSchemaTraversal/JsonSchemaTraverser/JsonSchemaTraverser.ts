@@ -1,6 +1,7 @@
 import { IGraphElementState } from '../../GraphElementState';
-import { IJsonSchemaTraverser, JsonSchema, JsonSchemaType } from '../../types';
+import { JsonSchema, JsonSchemaType } from '../../types';
 import { JsonSubschemaTraverser } from '../JsonSubschemaTraverser';
+import { IJsonSchemaTraverser } from '../types';
 import { buildJsonSchemaTraverserForSchemaType } from './SchemaTypes';
 
 export class JsonSchemaTraverser {
