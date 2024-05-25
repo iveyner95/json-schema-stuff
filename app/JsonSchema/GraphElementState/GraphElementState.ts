@@ -1,7 +1,8 @@
 import { Edge, Node } from 'reactflow';
 import { AddEdgeFn, AddNodeFn, JsonSchema, NodeSchemaData } from '../types';
+import { IGraphElementState } from './types';
 
-export class GraphElementState {
+export class GraphElementState implements IGraphElementState {
   public nodeSchemaData: NodeSchemaData = {};
   public nodes: Node[] = [];
   public edges: Edge[] = [];

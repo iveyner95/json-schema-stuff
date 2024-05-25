@@ -1,4 +1,4 @@
-import { GraphElementState } from '../../GraphElementState';
+import { IGraphElementState } from '../../GraphElementState';
 import { MockGraphElementState } from '../../GraphElementState/__mocks__/MockGraphElementState';
 import { JsonSchemaTraverser } from '../../JsonSchemaTraversal/JsonSchemaTraverser';
 import { MockJsonTraverser } from '../../JsonSchemaTraversal/__mocks__/MockJsonSchemaTraverser';
@@ -64,7 +64,7 @@ describe('JsonSchemaTraverserInitializer', () => {
 });
 
 function generateJsonSchemaParser(
-  graphElementState: GraphElementState,
+  graphElementState: IGraphElementState,
   jsonSchemaTraverser: JsonSchemaTraverser
 ) {
   return new JsonSchemaTraverserInitializer(
@@ -75,7 +75,7 @@ function generateJsonSchemaParser(
 }
 
 function generateGraphElementState() {
-  return new MockGraphElementState() as unknown as GraphElementState;
+  return new MockGraphElementState();
 }
 
 function generateJsonSchemaTraverser() {

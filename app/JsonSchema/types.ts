@@ -1,5 +1,7 @@
 import { Node } from 'reactflow';
 
+// TODO: move to appropriate places
+
 export type JsonSchema = Partial<Record<string, any>>;
 export type JsonTraverseSchemaFn = (schema: JsonSchema, sourceNodeId: string) => void;
 export type AddNodeFn = (label: string, jsonSchema: JsonSchema) => void;
@@ -9,11 +11,6 @@ export type SubschemaExistsFn = (schema: JsonSchema, subschemaKey: string) => bo
 
 export interface IJsonSchemaTraverser {
   traverseSchema: JsonTraverseSchemaFn;
-}
-
-export interface JsonSchemaTypeTraverserArgs {
-  subschemaExists: SubschemaExistsFn;
-  traverseSubschema: JsonTraverseSchemaFn;
 }
 
 export type NodeSchemaData = Record<Node['id'], JsonSchema>;

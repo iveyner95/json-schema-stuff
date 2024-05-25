@@ -1,20 +1,15 @@
-import {
-  IJsonSchemaTraverser,
-  JsonSchema,
-  JsonSchemaTypeTraverserArgs,
-  JsonTraverseSchemaFn,
-  SubschemaExistsFn,
-} from '../types';
+import { IJsonSchemaTraverser, JsonSchema, JsonTraverseSchemaFn } from '../../types';
+import { IJsonSubschemaTraverser } from '../types';
+import { subschemaExists } from '../utils';
 
 import { ObjectSubschemaKeyValues } from './types';
 
+// TODO: add test
 export class ObjectJsonSchemaTraverser implements IJsonSchemaTraverser {
-  private subschemaExists: SubschemaExistsFn;
-  private traverseSubschema: JsonTraverseSchemaFn;
+  private subschemaTraverser: IJsonSubschemaTraverser;
 
-  constructor({ subschemaExists, traverseSubschema }: JsonSchemaTypeTraverserArgs) {
-    this.subschemaExists = subschemaExists;
-    this.traverseSubschema = traverseSubschema;
+  constructor(subschemaTraverser: IJsonSubschemaTraverser) {
+    this.subschemaTraverser = subschemaTraverser;
   }
 
   public traverseSchema: JsonTraverseSchemaFn = (schema: JsonSchema, sourceNodeId: string) => {
@@ -33,9 +28,9 @@ export class ObjectJsonSchemaTraverser implements IJsonSchemaTraverser {
     ];
 
     subschemaKeys.forEach((subschemaKey) => {
-      if (this.subschemaExists(schema, subschemaKey)) {
+      if (subschemaExists(schema, subschemaKey)) {
         const subschema = schema[subschemaKey];
-        this.traverseSubschema(subschema, sourceNodeId);
+        this.subschemaTraverser.traverseSubschema(subschema, sourceNodeId);
       }
     });
   };
@@ -45,11 +40,11 @@ export class ObjectJsonSchemaTraverser implements IJsonSchemaTraverser {
     sourceNodeId: string
   ) => {
     const additionalProperties = ObjectSubschemaKeyValues.ADDITIONAL_PROPERTIES;
-    if (this.subschemaExists(schema, additionalProperties)) {
+    if (subschemaExists(schema, additionalProperties)) {
       const subschema: JsonSchema | false = schema[additionalProperties];
 
       if (subschema) {
-        this.traverseSubschema(subschema, sourceNodeId);
+        this.subschemaTraverser.traverseSubschema(subschema, sourceNodeId);
       }
     }
   };

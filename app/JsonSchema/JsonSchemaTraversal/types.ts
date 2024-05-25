@@ -1,12 +1,5 @@
-import { GraphElementState } from '../GraphElementState';
+import { JsonTraverseSchemaFn } from '../types';
 
-export enum ObjectSubschemaKeyValues {
-  PROPERTIES = 'properties',
-  PATTERN_PROPERTIES = 'patternProperties',
-  ADDITIONAL_PROPERTIES = 'additionalProperties',
-  PROPERTY_NAMES = 'propertyNames',
-}
-
-export interface GlobalJsonSchemaTraverserArgs {
-  graphElementState: GraphElementState;
+export interface IJsonSubschemaTraverser {
+  traverseSubschema: JsonTraverseSchemaFn;
 }

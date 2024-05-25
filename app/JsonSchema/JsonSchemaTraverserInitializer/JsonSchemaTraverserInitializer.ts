@@ -1,15 +1,15 @@
-import { GraphElementState } from '../GraphElementState';
-import { JsonSchemaTraverser } from '../JsonSchemaTraversal/JsonSchemaTraverser';
+import { IGraphElementState } from '../GraphElementState';
+import { JsonSchemaTraverser } from '../JsonSchemaTraversal';
 import { JsonSchema } from '../types';
 
 export class JsonSchemaTraverserInitializer {
   private jsonSchema: JsonSchema;
-  private graphElementState: GraphElementState;
+  private graphElementState: IGraphElementState;
   private jsonSchemaTraverser: JsonSchemaTraverser;
 
   constructor(
     jsonSchema: JsonSchema,
-    graphElementState: GraphElementState,
+    graphElementState: IGraphElementState,
     jsonSchemaTraverser: JsonSchemaTraverser
   ) {
     this.jsonSchema = jsonSchema;
