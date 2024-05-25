@@ -28,51 +28,39 @@ describe('JsonSchemaTraverser', () => {
   });
 
   describe('traverseSchema', () => {
-    it('with single schema type it should call expected jsonSchemaTraverser', () => {
-      const mockJsonSchemaTraverser = generateMockJsonSchemaTraverser();
-      const traverseSchemaSpy = jest.spyOn(mockJsonSchemaTraverser, 'traverseSchema');
+    const testCases: [[string, string, string], [string, string[], string]] = [
+      ['a single valid schema type', 'string', 'string'],
+      ['an array of valid schema types', ['string'], 'string'],
+    ];
 
-      (buildJsonSchemaTraverserForSchemaType as jest.Mock).mockReturnValueOnce(
-        mockJsonSchemaTraverser
-      );
+    it.each(testCases)(
+      'should call jsonSchemaTraverser with expected values when type is %s',
+      (_testDescription, schemaType, schemaForTraverserValue) => {
+        const mockJsonSchemaTraverser = generateMockJsonSchemaTraverser();
+        const traverseSchemaSpy = jest.spyOn(mockJsonSchemaTraverser, 'traverseSchema');
 
-      const graphElementState = generateGraphElementState();
+        (buildJsonSchemaTraverserForSchemaType as jest.Mock).mockReturnValueOnce(
+          mockJsonSchemaTraverser
+        );
 
-      const jsonSchemaTraverser = generateJsonSchemaTraverser(graphElementState);
+        const graphElementState = generateGraphElementState();
 
-      jsonSchemaTraverser.traverseSchema({ type: 'string' }, 'mockSourceNodeId');
+        const jsonSchemaTraverser = generateJsonSchemaTraverser(graphElementState);
 
-      const expectedBuildJsonSchemaTraverserForSchemaTypeValue = ['string', expect.any(Object)];
-      const expectedTraverseSchemaValue = [{ type: 'string' }, 'mockSourceNodeId'];
+        jsonSchemaTraverser.traverseSchema({ type: schemaType }, 'mockSourceNodeId');
 
-      expect(buildJsonSchemaTraverserForSchemaType).toHaveBeenCalledWith(
-        ...expectedBuildJsonSchemaTraverserForSchemaTypeValue
-      );
-      expect(traverseSchemaSpy).toHaveBeenCalledWith(...expectedTraverseSchemaValue);
-    });
+        const expectedBuildJsonSchemaTraverserForSchemaTypeValue = [
+          schemaForTraverserValue,
+          expect.any(Object),
+        ];
+        const expectedTraverseSchemaValue = [{ type: schemaType }, 'mockSourceNodeId'];
 
-    it('with array of schema types it should call expected jsonSchemaTraverser', () => {
-      const mockJsonSchemaTraverser = generateMockJsonSchemaTraverser();
-      const traverseSchemaSpy = jest.spyOn(mockJsonSchemaTraverser, 'traverseSchema');
-
-      (buildJsonSchemaTraverserForSchemaType as jest.Mock).mockReturnValueOnce(
-        mockJsonSchemaTraverser
-      );
-
-      const graphElementState = generateGraphElementState();
-
-      const jsonSchemaTraverser = generateJsonSchemaTraverser(graphElementState);
-
-      jsonSchemaTraverser.traverseSchema({ type: ['string'] }, 'mockSourceNodeId');
-
-      const expectedBuildJsonSchemaTraverserForSchemaTypeValue = ['string', expect.any(Object)];
-      const expectedTraverseSchemaValue = [{ type: ['string'] }, 'mockSourceNodeId'];
-
-      expect(buildJsonSchemaTraverserForSchemaType).toHaveBeenCalledWith(
-        ...expectedBuildJsonSchemaTraverserForSchemaTypeValue
-      );
-      expect(traverseSchemaSpy).toHaveBeenCalledWith(...expectedTraverseSchemaValue);
-    });
+        expect(buildJsonSchemaTraverserForSchemaType).toHaveBeenCalledWith(
+          ...expectedBuildJsonSchemaTraverserForSchemaTypeValue
+        );
+        expect(traverseSchemaSpy).toHaveBeenCalledWith(...expectedTraverseSchemaValue);
+      }
+    );
 
     it('should not call a jsonSchemaTraverser if schema type does not map to a Traverser', () => {
       (buildJsonSchemaTraverserForSchemaType as jest.Mock).mockReturnValueOnce(undefined);
