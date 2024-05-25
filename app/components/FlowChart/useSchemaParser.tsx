@@ -10,7 +10,7 @@ export const useSchemaParser = () => {
 
   // TODO: memoize this?
   const graphElementState = new GraphElementState();
-  const jsonSchemaTraverser = new JsonSchemaTraverser({ graphElementState });
+  const jsonSchemaTraverser = new JsonSchemaTraverser(graphElementState);
   const jsonSchemaTraverserInitializer = new JsonSchemaTraverserInitializer(
     schema,
     graphElementState,

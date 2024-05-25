@@ -1,9 +1,8 @@
-import { IGraphElementState } from '../GraphElementState';
-import { IJsonSchemaTraverser, JsonSchema, JsonSchemaType } from '../types';
-import { JsonSubschemaTraverser } from './JsonSubschemaTraverser';
+import { IGraphElementState } from '../../GraphElementState';
+import { IJsonSchemaTraverser, JsonSchema, JsonSchemaType } from '../../types';
+import { JsonSubschemaTraverser } from '../JsonSubschemaTraverser';
 import { buildJsonSchemaTraverserForSchemaType } from './SchemaTypes';
 
-// TODO: split into separate dir
 export class JsonSchemaTraverser {
   private subschemaTraverser: JsonSubschemaTraverser;
 

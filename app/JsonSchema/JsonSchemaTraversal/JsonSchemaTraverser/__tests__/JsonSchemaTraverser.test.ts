@@ -1,11 +1,11 @@
-import { IGraphElementState } from '../../GraphElementState';
-import { MockGraphElementState } from '../../GraphElementState/__mocks__/MockGraphElementState';
+import { JsonSchemaTraverser } from '..';
+import { IGraphElementState } from '../../../GraphElementState';
+import { MockGraphElementState } from '../../../GraphElementState/__mocks__/MockGraphElementState';
+import { JsonSubschemaTraverser } from '../../JsonSubschemaTraverser';
 import { MockJsonTraverser } from '../__mocks__/MockJsonSchemaTraverser';
-import { JsonSchemaTraverser } from '../JsonSchemaTraverser';
-import { JsonSubschemaTraverser } from '../JsonSubschemaTraverser';
 import { buildJsonSchemaTraverserForSchemaType } from '../SchemaTypes';
 
-jest.mock('../JsonSubschemaTraverser');
+jest.mock('../../JsonSubschemaTraverser');
 jest.mock('../SchemaTypes');
 
 describe('JsonSchemaTraverser', () => {

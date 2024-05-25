@@ -1,5 +1,5 @@
-import { IGraphElementState } from '../../GraphElementState';
-import { MockGraphElementState } from '../../GraphElementState/__mocks__/MockGraphElementState';
+import { MockGraphElementState } from '../../../GraphElementState/__mocks__/MockGraphElementState';
+import { IGraphElementState } from '../../../GraphElementState/types';
 import { JsonSubschemaTraverser } from '../JsonSubschemaTraverser';
 
 const traverseSchemaMock = jest.fn();

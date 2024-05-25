@@ -1,7 +1,7 @@
 import { IGraphElementState } from '../../GraphElementState';
 import { MockGraphElementState } from '../../GraphElementState/__mocks__/MockGraphElementState';
 import { JsonSchemaTraverser } from '../../JsonSchemaTraversal/JsonSchemaTraverser';
-import { MockJsonTraverser } from '../../JsonSchemaTraversal/__mocks__/MockJsonSchemaTraverser';
+import { MockJsonTraverser } from '../../JsonSchemaTraversal/JsonSchemaTraverser/__mocks__/MockJsonSchemaTraverser';
 import { JsonSchemaTraverserInitializer } from '../JsonSchemaTraverserInitializer';
 import jsonSchemaFixture from '../__fixtures__/jsonSchemaFixture.json';
 

@@ -1,5 +1,5 @@
-import { IJsonSchemaTraverser, JsonSchema, JsonTraverseSchemaFn } from '../../types';
-import { IJsonSubschemaTraverser } from '../types';
+import { IJsonSchemaTraverser, JsonSchema, JsonTraverseSchemaFn } from '@/app/JsonSchema/types';
+import { IJsonSubschemaTraverser } from '../../types';
 import { subschemaExists } from '../utils';
 
 import { ObjectSubschemaKeyValues } from './types';
