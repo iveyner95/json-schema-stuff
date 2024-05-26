@@ -11,14 +11,14 @@ export class JsonSchemaTraverser {
     this.subschemaTraverser = new JsonSubschemaTraverser(graphElementState, this.traverseSchema);
   }
 
-  public traverseSchema(jsonSchema: JsonSchema, sourceNodeId: string) {
+  public traverseSchema = (jsonSchema: JsonSchema, sourceNodeId: string) => {
     const schemaTypeOrTypes = jsonSchema.type as JsonSchemaType | JsonSchemaType[];
     const jsonSchemaTraversers = this.getSchemaTraversers(schemaTypeOrTypes);
 
     jsonSchemaTraversers.forEach((jsonSchemaTraverser) => {
       jsonSchemaTraverser.traverseSchema(jsonSchema, sourceNodeId);
     });
-  }
+  };
 
   private getSchemaTraversers = (schemaTypeOrTypes: JsonSchemaType | JsonSchemaType[]) => {
     const jsonSchemaTraversers: IJsonSchemaTraverser[] = [];
