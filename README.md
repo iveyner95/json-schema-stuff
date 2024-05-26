@@ -2,25 +2,34 @@
 
 -- WIP --
 
+Tool to visualize JSON Schemas in a graph format
+
 ## Getting Started
 
 First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Testing
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This repo has a number of tests included:
+
+- Jest
+- Eslint
+- TypeScript compiler
+- Prettier
+
+To run the full suite of tests run:
+
+```bash
+npm run test
+```
+
+Individual tests can be found in the `package.json` _scripts_ section.
 
 ## Learn More
 
