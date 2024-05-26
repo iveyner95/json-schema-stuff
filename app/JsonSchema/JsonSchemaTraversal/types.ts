@@ -1,14 +1,11 @@
-import { AddEdgeFn, AddNodeFn, GetLastNodeIdFn } from '../types';
+import { JsonSchema } from '../types';
 
-export enum ObjectSubschemaKeyValues {
-  PROPERTIES = 'properties',
-  PATTERN_PROPERTIES = 'patternProperties',
-  ADDITIONAL_PROPERTIES = 'additionalProperties',
-  PROPERTY_NAMES = 'propertyNames',
+export type JsonTraverseSchemaFn = (schema: JsonSchema, sourceNodeId: string) => void;
+
+export interface IJsonSchemaTraverser {
+  traverseSchema: JsonTraverseSchemaFn;
 }
 
-export interface GlobalJsonSchemaTraverserArgs {
-  addNode: AddNodeFn;
-  addEdge: AddEdgeFn;
-  getLastNodeId: GetLastNodeIdFn;
+export interface IJsonSubschemaTraverser {
+  traverseSubschema: JsonTraverseSchemaFn;
 }

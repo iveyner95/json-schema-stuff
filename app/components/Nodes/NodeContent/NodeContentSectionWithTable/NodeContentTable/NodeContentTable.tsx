@@ -1,3 +1,4 @@
+import { borderColor } from '@/app/tailwind-configs';
 import { NodeContentTableRows } from './NodeContentTableRows';
 import { RowData } from './types';
 
@@ -7,7 +8,7 @@ export interface NodeContentTableProps {
 
 export const NodeContentTable = ({ rowsData }: NodeContentTableProps) => {
   return (
-    <table className="w-full border-collapse text-xs">
+    <table className={`w-full border-collapse text-xs border-b border-${borderColor}`}>
       <thead>
         <tr>
           <th className={`p-2 text-left`}>Description</th>
