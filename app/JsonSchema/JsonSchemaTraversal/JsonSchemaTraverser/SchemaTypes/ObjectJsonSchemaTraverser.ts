@@ -1,10 +1,9 @@
 import { JsonSchema } from '@/app/JsonSchema/types';
 import { IJsonSchemaTraverser, IJsonSubschemaTraverser } from '../../types';
-import { subschemaExists } from '../utils';
+import { subschemaExists } from './utils';
 
 import { ObjectSubschemaKeyValues } from './types';
 
-// TODO: add test
 export class ObjectJsonSchemaTraverser implements IJsonSchemaTraverser {
   private subschemaTraverser: IJsonSubschemaTraverser;
 
