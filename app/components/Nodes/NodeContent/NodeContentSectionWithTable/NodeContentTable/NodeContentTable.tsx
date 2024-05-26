@@ -15,7 +15,9 @@ export const NodeContentTable = ({ rowsData }: NodeContentTableProps) => {
           <th className={`p-2 font-bold text-right`}>Value</th>
         </tr>
       </thead>
-      <NodeContentTableRows rowsData={rowsData} />
+      <tbody>
+        <NodeContentTableRows rowsData={rowsData} />
+      </tbody>
     </table>
   );
 };
