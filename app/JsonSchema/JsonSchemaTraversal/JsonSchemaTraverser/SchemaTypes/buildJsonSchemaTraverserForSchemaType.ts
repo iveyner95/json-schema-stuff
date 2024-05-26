@@ -2,7 +2,6 @@ import { JsonSchemaType } from '../../../types';
 import { IJsonSchemaTraverser, IJsonSubschemaTraverser } from '../../types';
 import { ObjectJsonSchemaTraverser } from './ObjectJsonSchemaTraverser';
 
-// TODO: add test
 export const buildJsonSchemaTraverserForSchemaType = (
   jsonSchemaType: JsonSchemaType,
   subschemaTraverser: IJsonSubschemaTraverser
