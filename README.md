@@ -4,15 +4,27 @@
 
 Tool to visualize JSON Schemas in a graph format
 
-## Getting Started
+## Development
 
-First, run the development server:
+### e2e Development
+
+You can run full local development with:
 
 ```bash
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### UI Development
+
+If you are developing UI Components its recommended to run storybook:
+
+```bash
+npm run storybook
+```
+
+Open [http://localhost:6006](http://localhost:6006) with your browser to see the result.
 
 ## Testing
 

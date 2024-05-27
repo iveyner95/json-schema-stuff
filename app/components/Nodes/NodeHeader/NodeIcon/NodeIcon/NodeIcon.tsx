@@ -1,9 +1,9 @@
 import { JsonSchemaType } from '@/app/JsonSchema';
 import { Tooltip } from 'react-tooltip';
-import { NodeIconWithoutTooltip } from './NodeIconWithoutTooltip';
-import { TooltipContent } from './TooltipContent';
+import { NodeIconWithoutTooltip } from '../NodeIconWithoutTooltip';
+import { TooltipContent } from '../TooltipContent';
 
-interface NodeIconProps {
+export interface NodeIconProps {
   id: string;
   jsonSchemaType: JsonSchemaType;
 }
