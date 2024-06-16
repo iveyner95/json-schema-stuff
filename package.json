@@ -13,6 +13,7 @@
     "test:prettier": "npx prettier . --check",
     "test:jest": "npx jest --collectCoverage",
     "test:storybook": "test-storybook --coverage",
+    "test:visual": "npm run chromatic",
     "clean": "npm-run-all clean:*",
     "clean:prettier": "npx prettier . --write",
     "storybook": "storybook dev -p 6006 --ci --no-open",
