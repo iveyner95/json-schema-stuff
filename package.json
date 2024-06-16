@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "cleanTest": "npm run clean && npm run test",
     "test": "npm-run-all --max-parallel 1 -p test:*",
     "test:lint": "next lint",
     "test:type-check": "tsc",
