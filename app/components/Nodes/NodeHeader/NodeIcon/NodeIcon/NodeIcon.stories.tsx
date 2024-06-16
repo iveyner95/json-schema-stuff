@@ -5,11 +5,11 @@ import { NodeIcon, NodeIconProps } from './NodeIcon';
 
 const NodeIconWrapper = (props: any) => {
   return (
-    <div className='flex justify-center items-center'>
+    <div className="flex justify-center items-center">
       <NodeIcon {...props} />
     </div>
-  )
-}
+  );
+};
 
 const meta: Meta<typeof NodeIcon> = {
   component: NodeIconWrapper,
@@ -30,9 +30,51 @@ export const Array: Story = {
   },
 };
 
+export const Boolean: Story = {
+  args: {
+    ...baseNodeIconProps,
+    jsonSchemaType: JsonSchemaType.BOOLEAN,
+  },
+};
+
+export const Integer: Story = {
+  args: {
+    ...baseNodeIconProps,
+    jsonSchemaType: JsonSchemaType.INTEGER,
+  },
+};
+
+export const Null: Story = {
+  args: {
+    ...baseNodeIconProps,
+    jsonSchemaType: JsonSchemaType.NULL,
+  },
+};
+
+export const Number: Story = {
+  args: {
+    ...baseNodeIconProps,
+    jsonSchemaType: JsonSchemaType.NUMBER,
+  },
+};
+
 export const Object: Story = {
   args: {
     ...baseNodeIconProps,
-    jsonSchemaType: JsonSchemaType.OBJECT
+    jsonSchemaType: JsonSchemaType.OBJECT,
   },
-}
+};
+
+export const String: Story = {
+  args: {
+    ...baseNodeIconProps,
+    jsonSchemaType: JsonSchemaType.STRING,
+  },
+};
+
+export const Fallback: Story = {
+  args: {
+    ...baseNodeIconProps,
+    jsonSchemaType: 'invalidStr' as JsonSchemaType,
+  },
+};
