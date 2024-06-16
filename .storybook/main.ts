@@ -12,7 +12,7 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
-    // '@storybook/addon-storysource',
+    '@storybook/addon-coverage',
     {
       name: '@storybook/addon-storysource',
       options: {
