@@ -13,6 +13,8 @@ const config: StorybookConfig = {
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
     '@storybook/addon-coverage',
+    'storybook-addon-pseudo-states',
+    '@storybook/addon-a11y',
     {
       name: '@storybook/addon-storysource',
       options: {
