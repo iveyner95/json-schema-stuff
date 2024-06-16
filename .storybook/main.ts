@@ -12,6 +12,11 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
+    '@storybook/addon-coverage',
+    'storybook-addon-pseudo-states',
+    '@storybook/addon-a11y',
+    '@whitespace/storybook-addon-html',
+    '@storybook/addon-storysource',
   ],
   framework: {
     name: '@storybook/nextjs',
