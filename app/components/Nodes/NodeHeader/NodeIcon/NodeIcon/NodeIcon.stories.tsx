@@ -19,20 +19,20 @@ export default meta;
 
 type Story = StoryObj<typeof NodeIcon>;
 
-const nodeIconProps: NodeIconProps = {
+const baseNodeIconProps: Partial<NodeIconProps> = {
   id: 'id',
-  jsonSchemaType: JsonSchemaType.ARRAY,
 };
 
 export const Array: Story = {
   args: {
-    ...nodeIconProps,
+    ...baseNodeIconProps,
+    jsonSchemaType: JsonSchemaType.ARRAY,
   },
 };
 
 export const Object: Story = {
   args: {
-    ...nodeIconProps,
+    ...baseNodeIconProps,
     jsonSchemaType: JsonSchemaType.OBJECT
   },
 }

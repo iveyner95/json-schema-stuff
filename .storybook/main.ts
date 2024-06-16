@@ -16,14 +16,7 @@ const config: StorybookConfig = {
     'storybook-addon-pseudo-states',
     '@storybook/addon-a11y',
     '@whitespace/storybook-addon-html',
-    {
-      name: '@storybook/addon-storysource',
-      options: {
-        loaderOptions: {
-          injectStoryParameters: false,
-        },
-      },
-    },
+    '@storybook/addon-storysource',
   ],
   framework: {
     name: '@storybook/nextjs',
