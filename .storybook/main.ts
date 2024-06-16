@@ -15,6 +15,7 @@ const config: StorybookConfig = {
     '@storybook/addon-coverage',
     'storybook-addon-pseudo-states',
     '@storybook/addon-a11y',
+    '@whitespace/storybook-addon-html',
     {
       name: '@storybook/addon-storysource',
       options: {
