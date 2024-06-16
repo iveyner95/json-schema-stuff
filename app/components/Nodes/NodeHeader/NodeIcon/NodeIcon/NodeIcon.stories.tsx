@@ -24,8 +24,15 @@ const nodeIconProps: NodeIconProps = {
   jsonSchemaType: JsonSchemaType.ARRAY,
 };
 
-export const Primary: Story = {
+export const Array: Story = {
   args: {
     ...nodeIconProps,
   },
 };
+
+export const Object: Story = {
+  args: {
+    ...nodeIconProps,
+    jsonSchemaType: JsonSchemaType.OBJECT
+  },
+}
