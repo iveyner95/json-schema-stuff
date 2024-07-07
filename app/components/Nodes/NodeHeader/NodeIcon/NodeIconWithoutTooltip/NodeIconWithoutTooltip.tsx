@@ -2,7 +2,7 @@ import { JsonSchemaType } from '@/app/JsonSchema';
 import { backgroundColorDM } from '@/app/tailwind-configs';
 import { useNodeIcon } from './useNodeIcon';
 
-interface NodeIconWithoutTooltipProps {
+export interface NodeIconWithoutTooltipProps {
   jsonSchemaType: JsonSchemaType;
 }
 
