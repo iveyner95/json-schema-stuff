@@ -1,4 +1,4 @@
-interface TooltipContentProps {
+export interface TooltipContentProps {
   headerText: string;
   text: string;
 }

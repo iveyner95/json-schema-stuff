@@ -17,62 +17,62 @@ const meta: Meta<typeof NodeIcon> = {
 
 export default meta;
 
-type Story = StoryObj<typeof NodeIcon>;
+type NodeIconStory = StoryObj<typeof NodeIcon>;
 
 const baseNodeIconProps: Partial<NodeIconProps> = {
   id: 'id',
 };
 
-export const Array: Story = {
+export const Array: NodeIconStory = {
   args: {
     ...baseNodeIconProps,
     jsonSchemaType: JsonSchemaType.ARRAY,
   },
 };
 
-export const Boolean: Story = {
+export const Boolean: NodeIconStory = {
   args: {
     ...baseNodeIconProps,
     jsonSchemaType: JsonSchemaType.BOOLEAN,
   },
 };
 
-export const Integer: Story = {
+export const Integer: NodeIconStory = {
   args: {
     ...baseNodeIconProps,
     jsonSchemaType: JsonSchemaType.INTEGER,
   },
 };
 
-export const Null: Story = {
+export const Null: NodeIconStory = {
   args: {
     ...baseNodeIconProps,
     jsonSchemaType: JsonSchemaType.NULL,
   },
 };
 
-export const Number: Story = {
+export const Number: NodeIconStory = {
   args: {
     ...baseNodeIconProps,
     jsonSchemaType: JsonSchemaType.NUMBER,
   },
 };
 
-export const Object: Story = {
+export const Object: NodeIconStory = {
   args: {
     ...baseNodeIconProps,
     jsonSchemaType: JsonSchemaType.OBJECT,
   },
 };
 
-export const String: Story = {
+export const String: NodeIconStory = {
   args: {
     ...baseNodeIconProps,
     jsonSchemaType: JsonSchemaType.STRING,
   },
 };
 
-export const Fallback: Story = {
+export const Fallback: NodeIconStory = {
   args: {
     ...baseNodeIconProps,
     jsonSchemaType: 'invalidStr' as JsonSchemaType,
