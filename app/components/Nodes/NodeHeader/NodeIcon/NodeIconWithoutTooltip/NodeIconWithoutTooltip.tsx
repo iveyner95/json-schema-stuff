@@ -1,6 +1,7 @@
 import { JsonSchemaType } from '@/app/JsonSchema';
 import { backgroundColorDM } from '@/app/tailwind-configs';
-import { useNodeIcon } from './useNodeIcon';
+import { IconBase } from './IconBase';
+import { useNodeIcon } from './icons';
 
 export interface NodeIconWithoutTooltipProps {
   jsonSchemaType: JsonSchemaType;
@@ -12,7 +13,9 @@ export const NodeIconWithoutTooltip = ({ jsonSchemaType }: NodeIconWithoutToolti
   return (
     <div className={`flex items-center cursor-help hover:opacity-80`}>
       <div className={`rounded-full ${backgroundColorDM} p-2`}>
-        <Icon />
+        <IconBase>
+          <Icon />
+        </IconBase>
       </div>
     </div>
   );
