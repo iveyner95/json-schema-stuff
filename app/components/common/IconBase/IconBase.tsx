@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface IconBaseProps {
+export interface IconBaseProps {
   size?: string;
   fill?: string;
   children: React.JSX.Element;

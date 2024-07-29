@@ -1,6 +1,6 @@
 import { JsonSchemaType } from '@/app/JsonSchema';
 import { backgroundColorDM } from '@/app/tailwind-configs';
-import { IconBase } from './IconBase';
+import { IconBase } from '@/common';
 import { useNodeIcon } from './icons';
 
 export interface NodeIconWithoutTooltipProps {
