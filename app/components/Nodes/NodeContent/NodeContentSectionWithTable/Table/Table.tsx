@@ -2,11 +2,11 @@ import { borderColor } from '@/app/tailwind-configs';
 import { RowData } from '../../types';
 import { Rows } from './Rows';
 
-export interface NodeContentTableProps {
+export interface TableProps {
   rowsData: RowData[];
 }
 
-export const NodeContentTable = ({ rowsData }: NodeContentTableProps) => {
+export const Table = ({ rowsData }: TableProps) => {
   return (
     <table className={`w-full border-collapse text-xs border-b border-${borderColor}`}>
       <thead>

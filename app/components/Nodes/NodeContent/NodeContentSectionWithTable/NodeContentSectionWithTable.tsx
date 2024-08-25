@@ -1,6 +1,6 @@
 import { RowData } from '../types';
 import { NodeContentSection } from './NodeContentSection';
-import { NodeContentTable } from './NodeContentTable';
+import { Table } from './Table';
 
 export const NodeContentSectionWithTable = ({
   headerText,
@@ -12,7 +12,7 @@ export const NodeContentSectionWithTable = ({
 
   return (
     <NodeContentSection headerText={headerText}>
-      <NodeContentTable rowsData={rowsData} />
+      <Table rowsData={rowsData} />
     </NodeContentSection>
   );
 };

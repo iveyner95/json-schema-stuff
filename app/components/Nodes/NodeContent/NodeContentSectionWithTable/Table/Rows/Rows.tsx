@@ -1,4 +1,4 @@
-import { NodeContentTableProps } from '../NodeContentTable';
+import { TableProps } from '../Table';
 import { Row } from './Row';
 
 export const Rows = ({ rowsData }: RowsProps) => {
@@ -12,4 +12,4 @@ export const Rows = ({ rowsData }: RowsProps) => {
   );
 };
 
-type RowsProps = NodeContentTableProps;
+type RowsProps = TableProps;
