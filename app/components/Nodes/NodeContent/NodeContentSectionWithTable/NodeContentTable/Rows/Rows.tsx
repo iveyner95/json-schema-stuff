@@ -1,7 +1,7 @@
-import { NodeContentTableProps } from './NodeContentTable';
+import { NodeContentTableProps } from '../NodeContentTable';
 import { Row } from './Row';
 
-export const NodeContentTableRows = ({ rowsData }: NodeContentTableRowsProps) => {
+export const Rows = ({ rowsData }: RowsProps) => {
   return (
     <>
       {rowsData.map((rowData, index) => {
@@ -12,4 +12,4 @@ export const NodeContentTableRows = ({ rowsData }: NodeContentTableRowsProps) =>
   );
 };
 
-type NodeContentTableRowsProps = NodeContentTableProps;
+type RowsProps = NodeContentTableProps;

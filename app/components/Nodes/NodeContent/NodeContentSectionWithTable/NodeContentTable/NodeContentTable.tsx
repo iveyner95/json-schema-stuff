@@ -1,5 +1,5 @@
 import { borderColor } from '@/app/tailwind-configs';
-import { NodeContentTableRows } from './NodeContentTableRows';
+import { Rows } from './Rows';
 import { RowData } from './types';
 
 export interface NodeContentTableProps {
@@ -16,7 +16,7 @@ export const NodeContentTable = ({ rowsData }: NodeContentTableProps) => {
         </tr>
       </thead>
       <tbody>
-        <NodeContentTableRows rowsData={rowsData} />
+        <Rows rowsData={rowsData} />
       </tbody>
     </table>
   );
