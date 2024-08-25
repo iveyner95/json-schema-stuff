@@ -1,5 +1,5 @@
 import { RowData } from '../types';
-import { NodeContentSection } from './NodeContentSection';
+import { ContentSection } from './ContentSection';
 import { Table } from './Table';
 
 export const NodeContentSectionWithTable = ({
@@ -11,9 +11,9 @@ export const NodeContentSectionWithTable = ({
   }
 
   return (
-    <NodeContentSection headerText={headerText}>
+    <ContentSection headerText={headerText}>
       <Table rowsData={rowsData} />
-    </NodeContentSection>
+    </ContentSection>
   );
 };
 

@@ -1,12 +1,12 @@
 import { backgroundColorSecondary } from '@/app/tailwind-configs';
 import { MinimizeIcon } from './MinimizeIcon';
 
-interface NodeContentSectionProps {
+interface ContentSectionProps {
   headerText: string;
   children: React.JSX.Element;
 }
 
-export const NodeContentSection = ({ headerText, children }: NodeContentSectionProps) => {
+export const ContentSection = ({ headerText, children }: ContentSectionProps) => {
   return (
     <div>
       <div className={`flex ${backgroundColorSecondary} p-2 justify-between`}>
