@@ -1,5 +1,5 @@
 import { NodeContentTableProps } from './NodeContentTable';
-import { NodeContentTableRow } from './NodeContentTableRow';
+import { Row } from './Row';
 
 export const NodeContentTableRows = ({ rowsData }: NodeContentTableRowsProps) => {
   return (
@@ -7,7 +7,7 @@ export const NodeContentTableRows = ({ rowsData }: NodeContentTableRowsProps) =>
       {rowsData.map((rowData, index) => {
         const isEven = index % 2 == 0;
         return (
-          <NodeContentTableRow
+          <Row
             key={`node-content-row-${index}`}
             rowData={rowData}
             isEven={isEven}

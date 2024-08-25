@@ -1,6 +1,6 @@
-import { RowData } from './types';
+import { RowData } from '../types';
 
-export const NodeContentTableRow = ({ rowData, isEven }: NodeContentTableRowProps) => {
+export const Row = ({ rowData, isEven }: RowProps) => {
   const [leftValue, rightValue] = rowData;
   const backgroundColor = isEven ? 'bg-neutral-200' : '';
 
@@ -12,7 +12,7 @@ export const NodeContentTableRow = ({ rowData, isEven }: NodeContentTableRowProp
   );
 };
 
-interface NodeContentTableRowProps {
+interface RowProps {
   rowData: RowData;
   isEven: boolean;
 }
