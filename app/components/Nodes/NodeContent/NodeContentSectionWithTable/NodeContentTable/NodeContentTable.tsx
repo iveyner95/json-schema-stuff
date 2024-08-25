@@ -1,6 +1,6 @@
 import { borderColor } from '@/app/tailwind-configs';
+import { RowData } from '../../types';
 import { Rows } from './Rows';
-import { RowData } from './types';
 
 export interface NodeContentTableProps {
   rowsData: RowData[];

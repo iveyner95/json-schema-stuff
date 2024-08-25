@@ -1,7 +1,6 @@
 import { JsonSchema } from '@/app/JsonSchema';
 import { contentKeywordData } from './KeywordData';
-import { RowData } from './NodeContentSectionWithTable/NodeContentTable';
-import { KeywordData } from './types';
+import { KeywordData, RowData } from './types';
 
 export const useInnerNodeContent = (nodeSchemaDataForNode: JsonSchema) => {
   const contentDataArr = generateContentDataArr(nodeSchemaDataForNode);

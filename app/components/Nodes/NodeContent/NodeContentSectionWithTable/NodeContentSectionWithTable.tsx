@@ -1,5 +1,6 @@
+import { RowData } from '../types';
 import { NodeContentSection } from './NodeContentSection';
-import { NodeContentTable, RowData } from './NodeContentTable';
+import { NodeContentTable } from './NodeContentTable';
 
 export const NodeContentSectionWithTable = ({
   headerText,
