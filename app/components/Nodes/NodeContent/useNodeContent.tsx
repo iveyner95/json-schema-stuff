@@ -2,7 +2,7 @@ import { JsonSchema } from '@/app/JsonSchema';
 import { contentKeywordData } from './KeywordData';
 import { KeywordData, RowData } from './types';
 
-export const useInnerNodeContent = (nodeSchemaDataForNode: JsonSchema) => {
+export const useNodeContent = (nodeSchemaDataForNode: JsonSchema) => {
   const contentDataArr = generateContentDataArr(nodeSchemaDataForNode);
   const isEmpty = contentDataArr.length === 0;
 
