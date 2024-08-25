@@ -19,7 +19,7 @@ export const Even: RowStory = {
 
 export const Odd: RowStory = {
   args: {
-    rowData: ['isEven', "false"],
-    isEven: false
+    rowData: ['isEven', 'false'],
+    isEven: false,
   },
-}
+};

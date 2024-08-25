@@ -6,13 +6,7 @@ export const NodeContentTableRows = ({ rowsData }: NodeContentTableRowsProps) =>
     <>
       {rowsData.map((rowData, index) => {
         const isEven = index % 2 == 0;
-        return (
-          <Row
-            key={`node-content-row-${index}`}
-            rowData={rowData}
-            isEven={isEven}
-          />
-        );
+        return <Row key={`node-content-row-${index}`} rowData={rowData} isEven={isEven} />;
       })}
     </>
   );
