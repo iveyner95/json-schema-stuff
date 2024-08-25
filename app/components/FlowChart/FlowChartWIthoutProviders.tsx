@@ -3,8 +3,8 @@
 import ReactFlow, { Background, Controls } from 'reactflow';
 
 import 'reactflow/dist/style.css';
-import { nodeTypes } from '../Nodes';
 import { NodeSchemaDataProvider } from '../NodeSchemaData';
+import { nodeTypes } from '../Nodes';
 import { useFlowChartDataAndCallbacks } from './useFlowChartDataAndCallbacks';
 
 export const FlowChartWithoutProviders = () => {
