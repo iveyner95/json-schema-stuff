@@ -1,5 +1,5 @@
 import { JsonSchema } from '@/app/JsonSchema';
-import { NodeContentSectionWithTable } from './NodeContentSectionWithTable';
+import { ContentSectionWithTable } from './ContentSectionWithTable';
 import { useInnerNodeContent } from './useInnerNodeContent';
 
 export interface InnerNodeContentProps {
@@ -16,8 +16,8 @@ export const InnerNodeContent = ({ nodeSchemaDataForNode }: InnerNodeContentProp
   return (
     <div className="flex flex-col gap-4 pb-2">
       {contentDataArr.map(([headerText, rowsData], index) => (
-        <NodeContentSectionWithTable
-          key={`NodeContentSectionWithTable-${index}`}
+        <ContentSectionWithTable
+          key={`ContentSectionWithTable-${index}`}
           headerText={headerText}
           rowsData={rowsData}
         />

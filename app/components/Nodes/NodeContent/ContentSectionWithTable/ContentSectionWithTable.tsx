@@ -2,10 +2,7 @@ import { RowData } from '../types';
 import { ContentSection } from './ContentSection';
 import { Table } from './Table';
 
-export const NodeContentSectionWithTable = ({
-  headerText,
-  rowsData,
-}: NodeContentSectionWithTableProps) => {
+export const ContentSectionWithTable = ({ headerText, rowsData }: ContentSectionWithTableProps) => {
   if (rowsData.length === 0) {
     return null;
   }
@@ -17,7 +14,7 @@ export const NodeContentSectionWithTable = ({
   );
 };
 
-interface NodeContentSectionWithTableProps {
+interface ContentSectionWithTableProps {
   headerText: string;
   rowsData: RowData[];
 }

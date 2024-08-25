@@ -26,6 +26,12 @@
       "@/common": ["app/components/common"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/components/Nodes/NodeContent/ContentSectionWithTable/ContentSectionWithTable.stories.tss"
+  ],
   "exclude": ["node_modules"]
 }
