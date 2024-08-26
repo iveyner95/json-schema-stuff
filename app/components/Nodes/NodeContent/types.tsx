@@ -17,4 +17,8 @@ export interface KeywordData {
   keywordsToDescription: Record<string, string>;
 }
 
-export type RowData = [string, string | number | boolean];
+type Keyword = string;
+type Description = string;
+type Value = string | number | boolean;
+
+export type RowData = [Keyword, Description, Value];

@@ -13,11 +13,11 @@ type RowsStory = StoryObj<typeof Rows>;
 export const Primary: RowsStory = {
   args: {
     rowsData: [
-      ['key1', 'One'],
-      ['key2', 'Two'],
-      ['key3', 'Three'],
-      ['key4', 'Four'],
-      ['key5', 'Five'],
+      ['keyword1', 'key1', 'One'],
+      ['keyword2', 'key2', 'Two'],
+      ['keyword3', 'key3', 'Three'],
+      ['keyword4', 'key4', 'Four'],
+      ['keyword5', 'key5', 'Five'],
     ],
   },
 };

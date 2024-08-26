@@ -12,14 +12,14 @@ type RowStory = StoryObj<typeof Row>;
 
 export const Even: RowStory = {
   args: {
-    rowData: ['isEven', 'true'],
+    rowData: ['keyword', 'isEven', 'true'],
     isEven: true,
   },
 };
 
 export const Odd: RowStory = {
   args: {
-    rowData: ['isEven', 'false'],
+    rowData: ['keyword', 'isEven', 'false'],
     isEven: false,
   },
 };

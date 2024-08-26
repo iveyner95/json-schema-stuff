@@ -38,7 +38,7 @@ const convertKeywordDataToRowData = (
 
     if (value !== undefined) {
       const description = keywordsToDescription[keyword];
-      rowsData.push([description, value]);
+      rowsData.push([keyword, description, value]);
     }
   });
 
