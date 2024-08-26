@@ -1,12 +1,10 @@
 'use client';
 
 import { JsonSchemaTraverser } from '@/app/JsonSchema/JsonSchemaTraversal/JsonSchemaTraverser';
-import Draft12 from '../../__fixtures__/2020-12.json';
 import { GraphElementState } from '../../JsonSchema/GraphElementState';
 import { JsonSchemaTraverserInitializer } from '../../JsonSchema/JsonSchemaTraverserInitializer';
 
-export const useSchemaParser = (schema: JSON) => {
-  // TODO: memoize this?
+export const useSchemaParser = (schema?: JSON) => {
   const graphElementState = new GraphElementState();
   const jsonSchemaTraverser = new JsonSchemaTraverser(graphElementState);
   const jsonSchemaTraverserInitializer = new JsonSchemaTraverserInitializer(

@@ -15,8 +15,8 @@ export const FlowChart = ({ schema }: { schema?: JSON }) => {
     <ReactFlowProvider>
       <FlowChartWithoutProviders schema={schema} />
     </ReactFlowProvider>
-  )
-}
+  );
+};
 
 const FlowChartWithoutProviders = ({ schema }: { schema?: JSON }) => {
   const { edges, nodes, nodeSchemaData, onEdgesChange, onNodesChange } =

@@ -3,12 +3,12 @@ import { JsonSchemaTraverser } from '../JsonSchemaTraversal';
 import { JsonSchema } from '../types';
 
 export class JsonSchemaTraverserInitializer {
-  private jsonSchema: JsonSchema;
+  private jsonSchema?: JsonSchema;
   private graphElementState: IGraphElementState;
   private jsonSchemaTraverser: JsonSchemaTraverser;
 
   constructor(
-    jsonSchema: JsonSchema,
+    jsonSchema: JsonSchema | undefined,
     graphElementState: IGraphElementState,
     jsonSchemaTraverser: JsonSchemaTraverser
   ) {
@@ -18,17 +18,23 @@ export class JsonSchemaTraverserInitializer {
   }
 
   parse() {
-    this.addRootNode();
-    this.traverseSchema();
+    if (this.jsonSchema) {
+      this.addRootNode();
+      this.traverseSchema();
+    }
   }
 
   private addRootNode() {
-    this.graphElementState.addNode(ROOT_NODE_LABEL, this.jsonSchema);
+    if (this.jsonSchema) {
+      this.graphElementState.addNode(ROOT_NODE_LABEL, this.jsonSchema);
+    }
   }
 
   private traverseSchema() {
-    const rootNodeId = this.graphElementState.getLastNodeId();
-    this.jsonSchemaTraverser.traverseSchema(this.jsonSchema, rootNodeId);
+    if (this.jsonSchema) {
+      const rootNodeId = this.graphElementState.getLastNodeId();
+      this.jsonSchemaTraverser.traverseSchema(this.jsonSchema, rootNodeId);
+    }
   }
 }
 
