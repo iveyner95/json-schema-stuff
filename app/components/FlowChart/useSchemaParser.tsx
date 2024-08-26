@@ -5,9 +5,7 @@ import Draft12 from '../../__fixtures__/2020-12.json';
 import { GraphElementState } from '../../JsonSchema/GraphElementState';
 import { JsonSchemaTraverserInitializer } from '../../JsonSchema/JsonSchemaTraverserInitializer';
 
-export const useSchemaParser = () => {
-  const schema: JSON = Draft12 as unknown as JSON; // Hardcoded for now
-
+export const useSchemaParser = (schema: JSON) => {
   // TODO: memoize this?
   const graphElementState = new GraphElementState();
   const jsonSchemaTraverser = new JsonSchemaTraverser(graphElementState);
