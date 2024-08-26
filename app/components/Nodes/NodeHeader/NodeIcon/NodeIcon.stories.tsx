@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { JsonSchemaType } from '../../../../../JsonSchema';
+import { JsonSchemaType } from '../../../../JsonSchema';
 import { NodeIcon, NodeIconProps } from './NodeIcon';
 
 const NodeIconWrapper = (props: any) => {
