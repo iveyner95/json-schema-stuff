@@ -1,7 +1,8 @@
 'use client';
-import { parseSchema } from '@/app/JsonSchema';
+
 import { useEffect } from 'react';
 import { useEdgesState, useNodesState } from 'reactflow';
+import { parseSchema } from '../../JsonSchema';
 import { useLayoutedElements } from './useLayoutedElements';
 
 export const useFlowChartDataAndCallbacks = (schema?: JSON) => {
