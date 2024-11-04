@@ -1,1 +1,1 @@
-export * from './useNodeIcon';
+export * from './getIconForJsonSchemaType';
