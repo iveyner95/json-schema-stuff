@@ -1,3 +1,5 @@
+import { render } from '@testing-library/react';
+import React from 'react';
 import { JsonSchemaType } from '../../../../../../../JsonSchema';
 import { getIconForJsonSchemaType } from '../getIconForJsonSchemaType';
 
@@ -12,7 +14,9 @@ describe('getIconForJsonSchemaType', () => {
     (jsonSchemaType: JsonSchemaType) => {
       const Icon = getIconForJsonSchemaType(jsonSchemaType);
 
-      expect(Icon).toMatchSnapshot();
+      const { container } = render(<Icon />);
+
+      expect(container).toMatchSnapshot();
     }
   );
 });
