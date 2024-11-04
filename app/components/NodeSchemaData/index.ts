@@ -1,2 +1,2 @@
 export * from './NodeSchemaDataProvider';
-export * from './useNodeSchemaDataValue';
+export * from './useNodeSchemaData';

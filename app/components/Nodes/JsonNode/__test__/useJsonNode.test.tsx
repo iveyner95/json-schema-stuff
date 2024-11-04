@@ -1,13 +1,13 @@
 import { renderHook } from '@testing-library/react';
 import { JsonSchemaType } from '../../../../JsonSchema';
-import { useNodeSchemaDataValue } from '../../../NodeSchemaData';
+import { useNodeSchemaData } from '../../../NodeSchemaData';
 import { useJsonNode } from '../useJsonNode';
 
 jest.mock('../../../NodeSchemaData');
 
 describe('useJsonNode', () => {
   it('should throw an error if nodeSchemaData is empty', () => {
-    mockUseNodeSchemaDataValue({});
+    mockuseNodeSchemaData({});
 
     expect(() => {
       renderHook(() => useJsonNode('id', { label: 'label' }));
@@ -15,7 +15,7 @@ describe('useJsonNode', () => {
   });
 
   it('should return expected values when nodeSchemaData is not empty', () => {
-    mockUseNodeSchemaDataValue({
+    mockuseNodeSchemaData({
       id: {
         label: 'label',
         type: JsonSchemaType.OBJECT,
@@ -29,6 +29,6 @@ describe('useJsonNode', () => {
   });
 });
 
-function mockUseNodeSchemaDataValue(mockValue: any) {
-  (useNodeSchemaDataValue as jest.Mock).mockReturnValue(mockValue);
+function mockuseNodeSchemaData(mockValue: any) {
+  (useNodeSchemaData as jest.Mock).mockReturnValue(mockValue);
 }

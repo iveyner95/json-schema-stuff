@@ -1,10 +1,10 @@
 import { JsonSchemaType } from '@/app/JsonSchema';
-import { useNodeSchemaDataValue } from '../../NodeSchemaData';
+import { useNodeSchemaData } from '../../NodeSchemaData';
 import { DataWithLabel } from './types';
 
 export const useJsonNode = (id: string, data: DataWithLabel) => {
   const { label } = data;
-  const nodeSchemaData = useNodeSchemaDataValue();
+  const nodeSchemaData = useNodeSchemaData();
   const nodeSchemaDataForId = nodeSchemaData[id];
 
   if (!nodeSchemaDataForId) {

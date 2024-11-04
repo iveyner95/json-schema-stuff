@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { NodeSchemaDataContext } from './NodeSchemaDataContext';
 
-export const useNodeSchemaDataValue = () => {
+export const useNodeSchemaData = () => {
   const nodeSchemaData = useContext(NodeSchemaDataContext);
 
   if (!nodeSchemaData) {
