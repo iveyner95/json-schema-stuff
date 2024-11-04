@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getIconForJsonSchemaType should return expected component when jsonSchemaType is array 1`] = `[Function]`;
+
+exports[`getIconForJsonSchemaType should return expected component when jsonSchemaType is boolean 1`] = `[Function]`;
+
+exports[`getIconForJsonSchemaType should return expected component when jsonSchemaType is integer 1`] = `[Function]`;
+
+exports[`getIconForJsonSchemaType should return expected component when jsonSchemaType is notAJsonSchemaType 1`] = `[Function]`;
+
+exports[`getIconForJsonSchemaType should return expected component when jsonSchemaType is null 1`] = `[Function]`;
+
+exports[`getIconForJsonSchemaType should return expected component when jsonSchemaType is number 1`] = `[Function]`;
+
+exports[`getIconForJsonSchemaType should return expected component when jsonSchemaType is object 1`] = `[Function]`;
+
+exports[`getIconForJsonSchemaType should return expected component when jsonSchemaType is string 1`] = `[Function]`;
