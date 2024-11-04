@@ -2,7 +2,7 @@ import { JsonSchemaTraverser } from '..';
 import { IGraphElementState } from '../../../GraphElementState';
 import { MockGraphElementState } from '../../../GraphElementState/__mocks__/MockGraphElementState';
 import { JsonSubschemaTraverser } from '../../JsonSubschemaTraverser';
-import { MockJsonTraverser } from '../__mocks__/MockJsonSchemaTraverser';
+import { MockJsonSchemaTraverser } from '../__mocks__/MockJsonSchemaTraverser';
 import { buildJsonSchemaTraverserForSchemaType } from '../SchemaTypes';
 
 jest.mock('../../JsonSubschemaTraverser');
@@ -92,5 +92,5 @@ function generateJsonSchemaTraverser(graphElementState: IGraphElementState) {
 }
 
 function generateMockJsonSchemaTraverser() {
-  return new MockJsonTraverser();
+  return new MockJsonSchemaTraverser();
 }
